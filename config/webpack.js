@@ -4,7 +4,7 @@ const babelOpts = require('./babel');
 const styles = require('./styles');
 const setup = require('./setup');
 
-const dist = join(__dirname, '..', 'dist');
+const dist = join(__dirname, '..', 'docs');
 const exclude = /(node_modules|bower_components)/;
 
 module.exports = env => {

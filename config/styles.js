@@ -23,25 +23,7 @@ module.exports = [
 			]
 		}
 	},
-	// {
-	// 	loader: 'postcss-loader',
-	// 	options: {
-	// 		config: {
-	// 			path: './config/'
-	// 		},
-	// 		// parser: 'sugarss',
-	// 		// exec: true
-	// 	}
-	// },
 	{
 		loader: 'stylus-loader'
 	}
-	// {
-	// 	loader: 'sass-loader',
-	// 	options: {
-	// 		includePaths: [
-	// 			join(__dirname, 'src')
-	// 		]
-	// 	}
-	// }
 ]
