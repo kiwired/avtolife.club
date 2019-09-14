@@ -1,6 +1,4 @@
 import { h, Component } from 'preact';
-import Header from './header';
-import throttle from 'lodash/throttle';
 
 
 class Layout extends Component {
@@ -26,7 +24,6 @@ class Layout extends Component {
 
 		this.viewport.setAttribute('content', viewport);
 		document.documentElement.style.fontSize = fontSize;
-		// this.setState({ viewport, fontSize });
 	}
 
 	componentDidMount() {
@@ -37,20 +34,23 @@ class Layout extends Component {
 			return;
 		}
 
-		this.onRatio = throttle(this.onRatio, 100);
+		let timeout = window.requestAnimationFrame(this.onRatio);
 
-		this.onRatio();
-
-		window.addEventListener('resize', this.onRatio);
+		window.addEventListener('resize', () => {
+			// If there's a timer, cancel it
+			if (timeout) {
+				window.cancelAnimationFrame(timeout);
+			}
+			// Setup the new requestAnimationFrame()
+			timeout = window.requestAnimationFrame(this.onRatio);
+		});
 	}
 
 	render(props) {
-		return (
-			<div class='layout'>
-				<Header />
-				<main {...props} />
-			</div>
-		);
+		return props.children[0];
+		// return (
+		// 	<div class='layout' {...props} />
+		// );
 	}
 }
 

@@ -67,5 +67,58 @@
 
 // Need to be loaded last
 // @import 'core/text'
-// @import 'core/utility'
+@import 'core/utility'
 // @import 'core/print'
+
+
+.header
+	position absolute
+	top 0
+	left 0
+	width: 100%
+
+	padding: 30px 0 0
+
+	background: #000
+	color #b7b8bd
+
+	&-inner
+		display flex
+		// align-items: center
+		// justify-content: space-around
+
+	+screen-medium()
+		// 
+
+.header-logo
+	display block
+
+	&-after
+		max-width 190px
+
+		font-size: 13px
+		line-height: 1.4
+
+		margin: 15px 0 0 70px
+
+
+.header-addres
+	font-size: 13px
+
+	margin-left: 110px
+
+	> a
+		display block
+		font-size: 20px
+		font-weight: 700
+		line-height: 1.4
+		color white
+
+
+.header-call
+	// flex: 1 1 auto
+	margin: 0 0 0 auto
+
+
+.page
+	padding: 110px 0 0

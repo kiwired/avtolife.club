@@ -11,7 +11,9 @@ const HTML = require('html-webpack-plugin');
 module.exports = isProd => {
 	// base plugins array
 	const plugins = [
-		new CleanWebpackPlugin(),
+		new CleanWebpackPlugin({
+			cleanOnceBeforeBuildPatterns: ['**/*', '!CNAME']
+		}),
 		new Copy([{
 			context: 'src/static/',
 			from: '**/*.*'
