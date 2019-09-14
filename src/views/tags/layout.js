@@ -3,11 +3,6 @@ import { h, Component } from 'preact';
 
 class Layout extends Component {
 
-	state = {
-		viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
-		fontSize: '100%'
-	}
-
 	onRatio = () => {
 
 		const width = window.innerWidth || document.documentElement.innerWidth;
@@ -26,6 +21,15 @@ class Layout extends Component {
 		document.documentElement.style.fontSize = fontSize;
 	}
 
+	onResize = () => {
+		// If there's a timer, cancel it
+		if (this.timeout) {
+			window.cancelAnimationFrame(this.timeout);
+		}
+		// Setup the new requestAnimationFrame()
+		this.timeout = window.requestAnimationFrame(this.onRatio);
+	}
+
 	componentDidMount() {
 
 		this.viewport = document.querySelector('meta[name="viewport"]');
@@ -34,16 +38,9 @@ class Layout extends Component {
 			return;
 		}
 
-		let timeout = window.requestAnimationFrame(this.onRatio);
+		this.onResize();
 
-		window.addEventListener('resize', () => {
-			// If there's a timer, cancel it
-			if (timeout) {
-				window.cancelAnimationFrame(timeout);
-			}
-			// Setup the new requestAnimationFrame()
-			timeout = window.requestAnimationFrame(this.onRatio);
-		});
+		window.addEventListener('resize', this.onResize);
 	}
 
 	render(props) {

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "url": "/app.f833912d614b24514209.js"
+    "url": "/app.8867d1631825e78b2979.js"
   },
   {
     "revision": "dc177189be57c288eabcce9fff79a7ef",
@@ -31,11 +31,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/icon/mstile-150x150.png"
   },
   {
-    "revision": "c153fa3aad41dd1b986e1a602dda29a2",
+    "revision": "3c4573f2aac7a59268e672b3158cab5b",
     "url": "/img/logo.svg"
   },
   {
-    "revision": "fd065fb65052714ab35aeafee940ade4",
+    "revision": "2b116c34d06aca70eaf8ceb3b8100528",
     "url": "/index.html"
   },
   {
@@ -43,6 +43,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/manifest.json"
   },
   {
-    "url": "/vendor.f833912d614b24514209.js"
+    "url": "/vendor.8867d1631825e78b2979.js"
   }
 ]);

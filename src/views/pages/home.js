@@ -1,33 +1,116 @@
-import { h } from 'preact';
+import { h, Component } from 'preact';
 import { Link } from 'preact-router';
-import Card from '../tags/card';
+import Container from '../tags/container';
 
 export default function (props) {
+
+	const navs = [
+		{
+			content: 'Полировка',
+			href: '/polishing',
+			childs: [
+
+			]
+		},
+		{
+			content: 'Химчистка',
+			href: '/cleaning',
+			childs: [
+
+			]
+		},
+		{
+			content: 'Тонировка',
+			href: '/tinting',
+			childs: [
+				{
+					content: 'Автоматическая',
+					href: '/tinting/auto'
+				},
+				{
+					content: 'Съемная',
+					href: '/tinting/gost'
+				},
+				{
+					content: 'Атермальная',
+					href: '/tinting/gost'
+				},
+				{
+					content: 'ГОСТ',
+					href: '/tinting/gost'
+				},
+			]
+		},
+		{
+			content: 'Защитные пленки',
+			href: '/films',
+			childs: [
+
+			]
+		},
+		{
+			content: 'Керамика',
+			href: '/ceramics',
+			childs: [
+
+			]
+		},
+		{
+			content: 'Обучение',
+			href: '/learning',
+			childs: [
+
+			]
+		},
+	];
+
 	return (
-		<div className="page page__home">
-			<Card>
-				<h1>Home</h1>
-				<p>This is the home page.</p>
-
-				<p>You should check out:</p>
-				<nav>
-					<Link href="/foo">Foo</Link>
-					<Link href="/foo/bar">Foo/Bar</Link>
-				</nav>
-			</Card>
-
-			<Card>
-				<h2>Features:</h2>
-				<ul>
-					<li>Offline Caching (via `serviceWorker`)</li>
-					<li>SASS & Autoprefixer</li>
-					<li>Asset Versioning (aka "cache-busting")</li>
-					<li>ES2015 (ES6) and ES2016 (ES7) support</li>
-					<li>Hot Module Replacement (HMR) for all files</li>
-					<li>Preact Developer Tools</li>
-					<li><a href="https://github.com/GoogleChrome/lighthouse" target="_blank" rel="noopener">Lighthouse</a> approved (100/100)</li>
-				</ul>
-			</Card>
-		</div>
+		<Container>
+			<div className='nav'>
+				{navs.map(nav => (
+					<NavItem {...nav} />
+				))}
+			</div>
+		</Container>
 	);
+}
+
+class NavItem extends Component {
+
+	state = {
+		isOpen: false
+	}
+
+	onToggle = () => {
+		// this.setState({ isOpen: !this.state.isOpen });
+	}
+
+	render(props, state) {
+
+		if (props.childs) {
+			const classes = state.isOpen ? 'nav-item active' : 'nav-item';
+			return (
+				<div className={classes} onClick={this.onToggle}>
+					<span className='nav-item-title'>
+						{props.content}
+					</span>
+					<span className='nav-item-list'>
+						{props.childs.map(nav => (
+							<Link href={nav.href}>
+								{nav.content}
+							</Link>
+						))}
+					</span>
+				</div>
+			)
+		}
+
+		return (
+			<Link className='nav-item' href={props.href}>
+				<span className='nav-item-title'>
+					{props.content}
+				</span>
+			</Link>
+		);
+	}
 }
