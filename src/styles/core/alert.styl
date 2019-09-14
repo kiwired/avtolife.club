@@ -1,0 +1,22 @@
+// Component: Alert
+//========================================================================
+
+.alert
+	padding: base-margin
+	background: lighten(color-primary, 80%)
+	color: color-primary;
+
+	* + &
+		margin-top: base-margin
+
+	&-success
+		background: lighten(color-success, 80%)
+		color: color-success;
+
+	&-warning
+		background: lighten(color-warning, 80%)
+		color: color-warning;
+
+	&-danger
+		background: lighten(color-danger, 80%)
+		color: color-danger;

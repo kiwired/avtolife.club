@@ -1,0 +1,378 @@
+//========================================================================
+//  Component: Animation
+//========================================================================
+
+[class*='animation-']
+	animation-duration: 0.5s
+	animation-timing-function: $easing
+	animation-fill-mode: both
+
+// Fade. Higher specificity (!important) needed because of reverse modifier
+.animation-fade
+	animation-name: fade
+	animation-duration: 1.5s
+
+.animation-fade-out
+	animation-name: fade-out
+	animation-duration: 0.8s
+
+.animation-tmp
+	animation-name: tmp
+	animation-duration: .25s
+
+
+.animation-fade-width
+	animation-name: fade-width
+	animation-duration: 1.2s
+
+.animation-to-right
+	animation-name: to-right
+	animation-duration: 1.2s
+
+
+.animation-fade-height
+	animation-name: fade-height
+	animation-duration: 1.3s
+
+.animation-to-top
+	animation-name: to-top
+	animation-duration: 2s
+
+
+// Fade with scale
+
+.animation-scale-up
+	animation-name: fade-scale-02
+
+.animation-scale-down
+	animation-name: fade-scale-18
+
+
+// Fade with slide
+
+.animation-slide-top
+	animation-name: fade-top
+
+.animation-slide-bottom
+	animation-name: fade-bottom
+
+.animation-slide-left
+	animation-name: fade-left
+
+.animation-slide-right
+	animation-name: fade-right
+
+
+// Scale
+
+.animation-scale
+	animation-name: scale-12
+
+// Shake
+
+.animation-shake
+	animation-name: shake
+
+
+// Direction modifiers
+//========================================================================
+
+.animation-reverse
+	animation-direction: reverse
+	animation-timing-function: ease-in
+
+
+
+// Duration modifiers
+//========================================================================
+
+.animation-15
+	animation-duration: 15s
+
+
+// Origin modifiers
+//========================================================================
+
+.animation-top-left
+	transform-origin: 0 0
+
+.animation-top-center
+	transform-origin: 50% 0
+
+.animation-top-right
+	transform-origin: 100% 0
+
+.animation-middle-left
+	transform-origin: 0 50%
+
+.animation-middle-right
+	transform-origin: 100% 50%
+
+.animation-bottom-left
+	transform-origin: 0 100%
+
+.animation-bottom-center
+	transform-origin: 50% 100%
+
+.animation-bottom-right
+	transform-origin: 100% 100%
+
+
+// Sub-object: `animation-hover`
+//========================================================================
+
+/*
+ * Enable animation only on hover
+ * Note: Firefox also needs this because animations are not triggered when switching between display `hidden` and `block`
+ */
+
+.animation-hover:not(:hover),
+.animation-hover:not(:hover) [class*='animation-'],
+.touch .animation-hover:not(.hover),
+.touch .animation-hover:not(.hover) [class*='animation-']
+	animation-name: none
+
+
+@keyframes tmp
+	0%
+		opacity 1
+
+	100%
+		opacity .95
+
+
+@keyframes button-bg
+	0%
+		background-position-x: 0
+
+	100%
+		background-position-x: 40px
+
+
+
+// Keyframes: Fade. Used by dropdown, datepicker and slideshow component
+//========================================================================
+
+@keyframes fade
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+
+@keyframes fade-out
+	0%
+		opacity: 1
+	100%
+		opacity: 0
+
+
+// Keyframes: Fade with slide
+//========================================================================
+
+// Top
+@keyframes fade-top
+	0%
+		opacity: 0
+		transform: translateY(-100%)
+
+	100%
+		opacity: 1
+		transform: translateY(0)
+
+
+
+// Bottom
+@keyframes fade-bottom
+	0%
+		opacity: 0
+		transform: translateY(100%)
+
+	100%
+		opacity: 1
+		transform: translateY(0)
+
+
+// Left
+@keyframes fade-left
+	0%
+		opacity: 0
+		transform: translateX(-10%)
+
+	100%
+		opacity: 1
+		transform: translateX(0)
+
+
+// Right
+@keyframes fade-right
+	0%
+		opacity: 0
+		transform: translateX(10%)
+
+	100%
+		opacity: 1
+		transform: translateX(0)
+
+
+@keyframes fade-width
+	0%
+		width: 100%
+
+	100%
+		width: 0
+
+@keyframes fade-height
+	0%
+		height: 100%
+
+	100%
+		height: 0
+
+
+@keyframes to-right
+	0%
+		transform: translateY(-50%) translateX(-55%)
+
+	100%
+		transform: translateY(-50%) translateX(-50%)
+
+@keyframes to-right-scaled
+	0%
+		transform: translate(-57%, -50%) scale(1.3)
+
+	100%
+		transform: translate(-50%, -50%) scale(1.3)
+
+@keyframes to-top
+	0%
+		transform: translate(-50%, -50%)
+
+	100%
+		transform: translate(-50%, -50%)
+
+
+// Keyframes: Fade with scale
+//========================================================================
+
+@keyframes zoom-in
+	0%
+		opacity: 0
+		transform: translateZ(20px)
+
+	100%
+		opacity: 1
+		transform: translateZ(0)
+
+@keyframes zoom-out
+	0%
+		opacity: 1;
+		transform: translateZ(0)
+
+	100%
+		opacity: 0;
+		transform: translateZ(-20px)
+
+
+// Scale by 0.5
+@keyframes fade-scale-05
+	0%
+		opacity: 0
+		transform: scale(0.5)
+
+	100%
+		opacity: 1
+		transform: scale(1)
+
+
+
+// Scale by 1.5
+// Used by slideshow component
+@keyframes fade-scale-15
+	0%
+		opacity: 0
+		transform: scale(1.5)
+
+	100%
+		opacity: 1
+		transform: scale(1)
+
+
+
+// Scale by 1.8
+@keyframes fade-scale-18
+	0%
+		opacity: 0
+		transform: scale(1.8)
+
+	100%
+		opacity: 1
+		transform: scale(1)
+
+@keyframes width-out
+	0%
+		width: 100%
+
+	100%
+		width: 0
+
+
+// Keyframes: Slide
+// Used by slideshow component
+//==========================================================================
+
+// Left
+@keyframes slide-left
+	0%  {transform: translateX(-100%)}
+	100%  {transform: translateX(0)}
+
+// Right
+@keyframes slide-right
+	0%  {transform: translateX(100%)}
+	100%  {transform: translateX(0)}
+
+// Left third
+@keyframes slide-left-33
+	0%  {transform: translateX(33%)}
+	100%  {transform: translateX(0)}
+
+// Right third
+@keyframes slide-right-33
+	0%  {transform: translateX(-33%)}
+	100%  {transform: translateX(0)}
+
+
+// Keyframes: Scale
+//==========================================================================
+
+@keyframes scale-05
+	0%  {transform: scale(.5)}
+	100%  {transform: scale(1)}
+
+@keyframes scale-12
+	0%  {transform: scale(1.2)}
+	100%  {transform: scale(1)}
+
+
+// Keyframes: Rotate
+// Used by icon component
+//==========================================================================
+
+@keyframes rotate
+	0%  {transform: rotate(0deg)}
+	100%  {transform: rotate(359deg)}
+
+
+// Keyframes: Shake
+//==========================================================================
+
+@keyframes shake
+	0%, 100%  {transform: translateX(0)}
+	10%  {transform: translateX(-9px)}
+	20%  {transform: translateX(8px)}
+	30%  {transform: translateX(-7px)}
+	40%  {transform: translateX(6px)}
+	50%  {transform: translateX(-5px)}
+	60%  {transform: translateX(4px)}
+	70%  {transform: translateX(-3px)}
+	80%  {transform: translateX(2px)}
+	90%  {transform: translateX(-1px)}

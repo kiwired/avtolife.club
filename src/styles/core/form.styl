@@ -1,0 +1,341 @@
+//========================================================================
+// Component: Form
+//========================================================================
+
+form
+	//
+
+
+.form-row
+	position: relative
+
+	&::after
+		content ''
+		position: absolute
+		top 100%
+		left 0
+		width: 100%
+		height: 2px
+		background-color: form-border
+		transition: background .15s cubic-bezier(0.6, 0.04, 0.98, 0.335)
+
+
+	label
+		pointer-events: none
+		display: inline-block
+		position: absolute
+		top 0
+		left 0
+
+		font-size: form-label-font-size
+
+		min-height: form-height
+		// Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports
+		width: 100%
+		// Vertical `padding` needed for `select` elements in Firefox
+		padding: form-padding 0
+		// Style
+		color: form-color
+		font-size: 20px
+		line-height: 1.4
+
+		transition .15s cubic-bezier(0.6, 0.04, 0.98, 0.335)
+
+		span
+			color color-primary
+	
+	&.is-focus,
+	&:not(.is-empty)
+		label
+			top -7px
+
+			padding: 0 0
+			color #B4B4B4
+			font-size: 12px
+	
+	&.is-error
+		&::after
+			background-color: color-danger
+
+
+
+	&-radio
+		display: flex
+		flex-flow: row wrap
+		// justify-content: space-between
+
+		&-input
+
+			&:not(:last-child)
+				margin-right: 15px
+
+			input[type="radio"]
+				display: none
+
+				+ label
+					display: inline-block
+					cursor: pointer
+
+					border 1px solid #d8d8d8
+					border-radius: 28px
+					button-size(44px, 10px)
+
+					+screen-medium()
+						button-size(48px, 15px)
+				
+				&:checked + label
+					background: #d8d8d8
+			
+			+screen-medium()
+				// 
+
+
+.form-row-hint
+	margin: 5px 0 0
+
+
+input, select, textarea
+	margin: 0
+	// Remove `border-radius` in iOS.
+	border-radius: 0
+	// Correct `font` properties and `color` not being inherited.
+	// font: inherit
+	font-family base-body-font-family
+	font-size form-font-size
+	color: inherit
+
+	&:-webkit-autofill,
+	&:-webkit-autofill,
+	&:-webkit-autofill
+		background-color: transparent !important
+
+		&,
+		&:hover,
+		&:focus,
+		&:active
+			transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s
+
+// Address inconsistent `text-transform` inheritance which is only inherit in Firefox
+select
+	text-transform: none
+
+optgroup
+	// Correct `font` properties not being inherited.
+	font: inherit
+	// Don't inherit the `font-weight` and use `bold` instead.
+	// NOTE: Both declarations don't work in Chrome, Safari and Opera.
+	font-weight: bold
+
+// Removes inner padding and border in Firefox 4+.
+input::-moz-focus-inner
+	border: 0
+	padding: 0
+
+// Removes excess padding in IE 8/9/10.
+input[type="checkbox"],
+input[type="radio"]
+	position relative
+	appearance: none
+	display: inline-block
+	vertical-align: middle
+	line-height inherit
+	padding: 0
+	margin 0
+	width: 32px
+	height: @width
+	border 1px solid #dadbdc
+	border-radius 1px
+	outline: 0
+	background: white
+
+	&:before
+		content: ''
+		position absolute
+		display block
+		width: 0
+		height: @width
+		top 50%
+		left 50%
+		transform: translate(-50%, -50%)
+
+		background: #212121
+
+		transition: .15s
+
+	&:checked:before
+		width: 16px
+		height: @width
+
+	// Improves consistency of cursor style for clickable elements
+	&:not(:disabled)
+		cursor: pointer
+
+	.is-error > &
+	.form-row-checkbox.is-error &
+		border 1px solid color-danger
+
+		&:before
+			background: color-danger
+
+
+input[type="radio"]
+	border-radius: 50%
+
+	&:checked:before
+		border-radius: 50%
+		// content: ai-radio
+
+
+// Remove default style in iOS.
+select,
+textarea,
+input:not([type]),
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+input[type="datetime"]
+	appearance: none
+
+// Remove inner padding and search cancel button in Chrome, Safari and Opera on OS X.
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration
+	appearance: none
+
+// Fix the cursor style for Chrome's increment/decrement buttons. For certain
+// `font-size` values of the `input`, it causes the cursor style of the
+// decrement button to change from `default` to `text`.
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+	height: auto
+
+// Define consistent border, margin, and padding.
+fieldset
+	border: none
+	margin: 0
+	padding: 0
+
+textarea
+	// Remove default vertical scrollbar in IE 8/9/10/11.
+	overflow: hidden
+	// Improve readability and alignment in all browsers.
+	vertical-align: top
+	max-width 100%
+
+	transition height .1s
+
+// Style
+//==========================================================================
+
+// Controls
+// Except for `range`, `radio`, `checkbox`, `file`, `submit`, `reset`, `button` and `image`
+select,
+textarea,
+input:not([type]),
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"]
+	// Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports
+	width: 100%
+	// Style
+	border none
+	border-radius 3px
+	background: form-background
+	color: form-color
+
+	input-size(form-height, 0, 20px)
+
+	transition .15s cubic-bezier(0.6, 0.04, 0.98, 0.335)
+
+	&:-webkit-autofill
+		box-shadow: none
+
+	// Removes placeholder transparency in Firefox.
+	&::-moz-placeholder
+		opacity: 1
+
+	// Removes `box-shadow` for invalid controls in Firefox.
+	&:invalid
+		box-shadow: none
+
+	// Focus state
+	&:focus
+		border-color: form-focus
+		outline: 0
+		//background: form-focus-background
+		// color: form-focus-color
+		box-shadow: none
+
+	&:disabled
+		// border-color: form-disabled
+
+	+placeholder()
+		color: form-placeholder !important
+		// font-style italic
+
+	.is-error > &
+		// border-color: color-warning
+
+
+
+
+	// &:required,
+	// &.valid,
+	// &.is-error
+	// 	background-repeat no-repeat
+	// 	background-position top right
+
+	// &:required
+	// 	background-image: url(img/input/required-success.svg)
+
+	// &.valid
+	// 	background-image: url(img/input/required-success.svg)
+
+	// &.is-error
+	// 	background-image: url(img/input/required-danger.svg)
+
+
+// Vertical alignment
+//input:not([type="radio"]):not([type="checkbox"]),
+select
+	vertical-align: middle
+	// Fix
+	position: relative
+	text-indent: 0.01px
+	text-overflow: ''
+	padding-right base-margin
+
+	// border none
+	// box-shadow: 1px 2px 4px alpha(black, 0.15)
+	background url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIxMzBweCIgaGVpZ2h0PSI3MHB4IiB2aWV3Qm94PSIwIDAgMTMwIDcwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPiAgICAgICAgPHRpdGxlPmFuZ2xlLWRvd248L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJhbmdsZS1kb3duIiBmaWxsPSIjQTZBNkE2Ij4gICAgICAgICAgICA8cGF0aCBkPSJNMTI4LjMwMzI4OCwxLjMzOTk4MjEzIEMxMjYuNTE2NjQ1LC0wLjQ0NjY2MDY2NyAxMjMuNjEzMzUxLC0wLjQ0NjY2MDY2NyAxMjEuODI2NzA4LDEuMzM5OTgyMTMgTDY0Ljg3NzQ2NzgsNTguNDAwODg3NiBMNy44MTY1NjI0MSwxLjMzOTk4MjEzIEM2LjAyOTkxOTU2LC0wLjQ0NjY2MDY2NyAzLjEyNjYyNDk1LC0wLjQ0NjY2MDY2NyAxLjMzOTk4MjEzLDEuMzM5OTgyMTMgQy0wLjQ0NjY2MDcwOSwzLjEyNjYyNDkzIC0wLjQ0NjY2MDcwOSw2LjAyOTkxOTUyIDEuMzM5OTgyMTMsNy44MTY1NjI0NCBMNjEuNTI3NTEyNCw2OC4wMDQwOTI2IEM2Mi40MjA4MzM5LDY4Ljg5NzQxNDEgNjMuNTM3NDg1OSw2OS4zNDQwNzUgNjQuNzY1ODAyOCw2OS4zNDQwNzUgQzY1Ljg4MjQ1NDQsNjkuMzQ0MDc1IDY3LjExMDc3MTEsNjguODk3NDE0MSA2OC4wMDQwOTI2LDY4LjAwNDA5MjYgTDEyOC4xOTE2MjMsNy44MTY1NjI0NCBDMTMwLjA4OTkzMSw2LjAyOTkxOTUyIDEzMC4wODk5MzEsMy4xMjY2MjQ5MyAxMjguMzAzMjg4LDEuMzM5OTgyMTMgTDEyOC4zMDMyODgsMS4zMzk5ODIxMyBMMTI4LjMwMzI4OCwxLjMzOTk4MjEzIEwxMjguMzAzMjg4LDEuMzM5OTgyMTMgTDEyOC4zMDMyODgsMS4zMzk5ODIxMyBaIiBpZD0iU2hhcGUiPjwvcGF0aD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==') no-repeat right 10px center / auto 7px white
+
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap
+
+	&.is-error
+		box-shadow inset 0 0 0 1px color-danger
+
+
+// Reset height
+// Must be after size modifiers
+//==========================================================================
+
+textarea,
+select[multiple],
+select[size]
+	height: auto
