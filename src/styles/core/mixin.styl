@@ -94,22 +94,13 @@ input-size(height, padding, font-size = base-body-font-size)
 button-size(height, padding, font-size = base-body-font-size)
 	font-size: rem(font-size)
 	line-height: 1
-	padding: rem(sub(height, font-size) / 2) (rem(padding))
+	// padding: rem(sub(height, font-size) / 2) (rem(padding))
+	padding: rem(sub(height, font-size) / 2 + 1) (rem(padding)) rem(sub(height, font-size) / 2 - 1)
 
 button-modifier(c, background)
 	color: c
 	background background
 	border-color background
-
-	&.button-inverse
-		color: background
-		background transparent
-		border-color background
-
-	&.button-link
-		color: background
-		background transparent
-		border-color transparent
 
 	&:hover,
 	&:focus,
@@ -118,23 +109,6 @@ button-modifier(c, background)
 		color c
 		background darken(background, 15%)
 		border-color @background
-
-		&.button-inverse
-			color c
-			background background
-			border-color background
-
-		&.button-link
-			color darken(background, 15%)
-			background transparent
-			border-color transparent
-
-	// &.active
-	// 	background-image: linear-gradient(45deg, alpha(#fff, .15) 25%, transparent 25%, transparent 50%, alpha(#fff, .15) 50%, alpha(#fff, .15) 75%, transparent 75%, transparent)
-	// 	background-size: 40px 40px
-	// 	background-position-x: 0
-
-	// 	animation: button-bg 1.15s linear infinite
 
 
 placeholder()

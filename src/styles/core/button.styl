@@ -3,25 +3,41 @@
 	appearance: none
 
 	position relative
+	overflow hidden
 	display inline-block
 	
 	cursor pointer
 	outline: none
-	border (2px) solid
+	border none
 	box-shadow: none
-	border-radius: 0
+	border-radius: 3px
 
 	font: inherit
-	font-size: 16px
-	font-weight: 600
+	font-family: 'Aleo', Helvetica, Arial, sans-serif
+	font-weight: 700
 	text-transform uppercase
 	color white
 
-	margin: 0
-	button-size(44px, 40px)
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		top 0
+		left 0
+
+		width: 100%
+		height: 100%
+
+		// background: darken(background, 15%)
+		background: alpha(#fff, .15)
+		transform: rotate(-4.7deg) translate(0, 55%) scale(1.1)
+		pointer-events: none
+
+
+	button-size(65px, 50px, 20px)
 
 	+screen-medium()
-		button-size(52px, 40px)
+		button-size(65px, 50px, 20px)
 
 	transition .15s cubic-bezier(0.6, 0.04, 0.98, 0.335)
 
@@ -32,191 +48,5 @@
 		outline: none
 		text-decoration none
 	
-	button-modifier(white, #212121)
-
-	&-hover
-		position relative
-		overflow hidden
-
-		background: transparent
-		border: none
-
-		+screen-medium()
-			button-size(56px, 40px)
-
-		transition: color .7s ease
-
-		span
-			position relative
-			z-index 2
-
-		&::before,
-		&::after
-			content: ''
-			position: absolute
-			top: 0
-			right: 0
-			bottom: 0
-			left: 0
-		
-		&::before
-			background: #212121
-		
-		&::after
-			// z-index: -1
-			background: #F0EFEF
-			transform: translateX(-70%) translateX(-30%) translateY(-120%) rotate(10deg) scaleY(2)
-			// transform: translateY(100%) translateY(10px) rotate(10deg) scaleX(1.2)
-			transform-origin: left top
-			transition: transform .7s @easing
-		
-		&:hover,
-		&:focus
-			color: #212121
-			background: transparent
-
-			&::after
-				transform: translateX(0) translateY(-30%) rotate(0deg) scaleY(1.6)
-
-
-	&-hover1
-		overflow hidden
-		background: white
-		color white
-		z-index 1
-
-		border-color black
-		button-size(52px, 42px)
-		// button-size(56px, 40px)
-
-		&::before, &::after
-			pointer-events: none
-			content: ''
-			width: calc(100% + 2rem);
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: -15px;
-			z-index: -1;
-			background: black;
-			
-
-		&::before
-			transition: transform 0.3s $easingHover;
-			transform: translate3d(calc(-100% - 1rem), 0, 0) skew(-25deg);
-
-		&::after
-			transition: transform 0.3s 0.2s $easingHover;
-			transform: translate3d(0, 0, 0) skew(-25deg);
-		
-		> .top, > .middle, > .bottom
-			display: inline-block;
-
-		> .middle, > .bottom
-			pointer-events: none
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%)
-			clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-			width: 100%
-
-
-		> .top
-			position: relative;
-			z-index: 3;
-			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-			transition: clip-path 0.3s 0.3s $easingHover, -webkit-clip-path 0.3s 0.3s $easingHover;
-
-		> .middle
-			color: black;
-			transition: clip-path 0.3s 0.15s $easingHover, -webkit-clip-path 0.3s 0.15s $easingHover;
-
-		> .bottom
-			transition: clip-path 0.3s $easingHover, -webkit-clip-path 0.3s $easingHover;
-		
-
-		&:hover
-			background: white
-			color white
-
-			&::before
-				transition: transform 0.5s 0.2s $easingHover;
-				transform: translate3d(0, 0, 0) skew(-25deg);
-
-			&::after
-				transition: transform 0.5s $easingHover;
-				transform: translate3d(calc(100% + 1rem), 0, 0) skew(-25deg);
-			
-			> .top
-				transition: clip-path 0.3s $easingHover, -webkit-clip-path 0.3s $easingHover;
-				//-webkit-transition:-webkit-clip-path 0.3s $easingHover;
-				clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-
-			> .middle
-				transition: clip-path 0.3s $easingHover, -webkit-clip-path 0.3s $easingHover;
-				//-webkit-transition:-webkit-clip-path 0.3s $easingHover;
-				clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-
-			> .bottom
-				transition: clip-path 0.3s 0.4s $easingHover, -webkit-clip-path 0.3s 0.4s $easingHover;
-				//-webkit-transition:-webkit-clip-path 0.3s 0.4s $easingHover;
-				clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-
-
-	// &-hover > span
-	// 	pointer-events: none
-	// 	position absolute
-	// 	top -2px
-	// 	left -100px
-	// 	height 56px
-	// 	width: 70px
-
-	// 	background: white
-	// 	transform: skewX(-30deg)
-
-	// 	&::before,
-	// 	&::after
-	// 		content: ''
-	// 		position absolute
-	// 		top 0
-	// 		bottom 0
-	// 		width 15px
-	// 		background: black
-		
-	// 	&::before
-	// 		left -20px
-
-	// 	&::after
-	// 		right -20px
-	
-	&.loading
-
-		.ai-loading
-			animation: rotate 3s linear infinite
-
-	&-white
-		button-modifier(black, color-white)
-
-	&-info
-		button-modifier(white, color-info)
-
-	&-primary
-		button-modifier(white, color-primary)
-
-	&-warning
-		button-modifier(white, color-warning)
-
-	&-danger
-		button-modifier(white, color-danger)
-	
-
-	&-groups
-		display flex
-		flex-flow: row nowrap
-
-		> .button:first-child
-			border-right-width: 1px
-
-		> .button:not(:first-child)
-			border-left-width: 1px
+	// button-modifier(white, #212121)
+	button-modifier(#fff, #F25A23)

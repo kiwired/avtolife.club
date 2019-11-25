@@ -14,7 +14,7 @@ export default (
 	<Layout>
 		<Router onChange={onChange}>
 			<Home path='/' />
-			<Article path='/:title' />
+			<Article path='/:slug' />
 			<Error404 default />
 		</Router>
 	</Layout>

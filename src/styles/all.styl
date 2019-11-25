@@ -27,7 +27,7 @@
 // @import 'core/form'
 
 // Common
-// @import 'core/button'
+@import 'core/button'
 // @import 'core/close'
 // @import 'core/badge'
 // @import 'core/alert'
@@ -64,6 +64,7 @@
 // @import 'js/imagezoom'
 
 // @import 'block/*'
+@import 'tags/*'
 
 // Need to be loaded last
 // @import 'core/text'
@@ -77,14 +78,14 @@
 	left 0
 	width: 100%
 
-	padding: 15px 0 0
+	// padding: 15px 0 0
 
-	background: #000
-	color #b7b8bd
+	// background: #000
+	color #fff
 
 	&-inner
 		display flex
-		align-items: flex-start
+		align-items: center
 		// justify-content: space-around
 
 	+screen-medium()
@@ -94,24 +95,34 @@
 .header-logo
 	display block
 	// max-width 200px
-	max-width 40%
+	// max-width 40%
 
-	&-after
-		display none
-	
 	+screen-medium()
-		max-width 237px
+		width 180px
+		margin-right: 40px 
 
-		&-after
-			display block
-			max-width 190px
-			margin: 15px 0 0 70px
+.header-nav
+	display none
+	// max-width 200px
+	// max-width 40%
 
-			font-size: 13px
-			line-height: 1.4
+	+screen-medium()
+		flex: 1 0 auto
+		margin: 0 40px 0 0
+		display flex
+		flex-flow: row nowrap
+		justify-content: space-between
 
+		> a
+			font-family: 'Aleo', Helvetica, Arial, sans-serif
+			font-size: 18px
+			line-height: 26px
+			font-weight: 700
+			color inherit
+		
 
 .header-addres
+	display none
 	font-size: 13px
 	margin: 0 0 0 auto
 
@@ -143,32 +154,16 @@
 	+screen-medium()
 		display block
 
-		> button
-			cursor pointer
-			appearance none
-			border none
-			padding 15px 25px
-
-			line-height: 20px
-			text-transform uppercase
-			font-weight: 600
-			font-style: italic
-
-			background: color-danger
-			color white
-
-			&:hover,
-			&:active
-				outline: none
-				background: color-danger-darken
+		> .button
+			button-size(55px, 40px, 18px)
 
 
 
-.page
-	padding: 80px 0 0
+// .page
+// 	padding: 80px 0 0
 
-	+screen-medium()
-		padding: 110px 0 0
+// 	+screen-medium()
+// 		padding: 110px 0 0
 
 
 

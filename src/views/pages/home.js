@@ -21,23 +21,23 @@ export default function (props) {
 		},
 		{
 			content: 'Тонировка',
-			href: '/tinting',
+			href: '/tinting-gost',
 			childs: [
 				{
 					content: 'Автоматическая',
-					href: '/tinting/auto'
+					href: '/tinting-auto'
 				},
 				{
 					content: 'Съемная',
-					href: '/tinting/gost'
+					href: '/tinting-gost'
 				},
 				{
 					content: 'Атермальная',
-					href: '/tinting/gost'
+					href: '/tinting-gost'
 				},
 				{
 					content: 'ГОСТ',
-					href: '/tinting/gost'
+					href: '/tinting-gost'
 				},
 			]
 		},
@@ -87,7 +87,7 @@ class NavItem extends Component {
 
 	render(props, state) {
 
-		if (props.childs) {
+		if (props.childs && props.childs.length) {
 			const classes = state.isOpen ? 'nav-item active' : 'nav-item';
 			return (
 				<div className={classes} onClick={this.onToggle}>

@@ -6,6 +6,7 @@ const { GenerateSW } = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
 const HTML = require('html-webpack-plugin');
+const ImageMin = require('imagemin-webpack-plugin').default;
 // const uglify = require('./uglify');
 
 module.exports = isProd => {
@@ -21,6 +22,13 @@ module.exports = isProd => {
 		// new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
 		new HTML({
 			template: 'src/index.html'
+		}),
+		new ImageMin({
+			test: /\.(jpe?g|png|gif|svg)$/i,
+			disable: !isProd, // Disable during development
+			pngquant: {
+				quality: '95-100'
+			}
 		}),
 		// new webpack.DefinePlugin({
 		// 	'process.env.NODE_ENV': JSON.stringify(isProd ? 'production' : 'development')

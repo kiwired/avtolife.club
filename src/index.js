@@ -1,4 +1,5 @@
-import '@babel/polyfill';
+// import '@babel/polyfill';
+// import render from 'preact-render-to-string';
 import { h, render } from 'preact';
 // import GAnalytics from 'ganalytics';
 

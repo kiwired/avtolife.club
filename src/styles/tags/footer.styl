@@ -1,0 +1,47 @@
+
+.footer
+	position relative
+	width: 100%
+	padding: 75px 0 50px
+	background: url(/img/footer-bg.svg) no-repeat top center / cover
+
+	&-inner
+		display flex
+		flex-flow: column nowrap
+		align-items: center
+
+	+screen-medium()
+		padding: 75px 0 50px
+
+		&-inner
+			flex-flow: row nowrap
+			justify-content: space-between
+
+
+.footer-logo
+	// 
+	
+	+screen-medium()
+		flex: 0 0 200px
+
+
+.footer-addres
+	flex: 1 0 auto
+	text-align right
+	padding: 0 25px 0 0
+
+	color white
+	font-family: 'Aleo', Helvetica, Arial, sans-serif
+	font-size: 16px
+	line-height: 28px
+
+	> span
+		display block
+
+	> a
+		color: inherit
+		font-size: 25px
+
+
+.footer-call
+	// 

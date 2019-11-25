@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import Header from './header';
-// import Footer from './footer';
+import Footer from './footer';
 
 
 class Page extends Component {
@@ -10,6 +10,7 @@ class Page extends Component {
 			<div className='page'>
 				<Header />
 				<main {...props} />
+				<Footer />
 			</div>
 		);
 	}
