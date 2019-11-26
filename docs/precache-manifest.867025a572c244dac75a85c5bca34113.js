@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "url": "/app.d52c3ecd2a21ed0e6ca9.js"
+    "url": "/app.ac2810b0f82a6b691e56.js"
   },
   {
     "revision": "dc177189be57c288eabcce9fff79a7ef",
@@ -79,7 +79,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/step-polish-01.jpg"
   },
   {
-    "revision": "a76c5c78fe25397608f62f370c7aba1a",
+    "revision": "caed9d8f79eea2d0a5db62f920da76b1",
     "url": "/index.html"
   },
   {
@@ -87,6 +87,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/manifest.json"
   },
   {
-    "url": "/vendor.d52c3ecd2a21ed0e6ca9.js"
+    "url": "/vendor.ac2810b0f82a6b691e56.js"
   }
 ]);
