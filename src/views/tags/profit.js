@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { Link } from 'preact-router';
 import Container from './container';
 
-export default function () {
+export default function (props) {
 	return (
 		<div className="profit">
 			<Container>
@@ -12,20 +12,14 @@ export default function () {
 				</h2>
 
 				<div className="profit-inner">
-
-					<Item value='-75%' label='[position]' />
-					
-					<Item value='-75%' label='[position]' />
-
-					<Item value='-75%' label='[position]' />
-
-					<Item value='-75%' label='[position]' />
-
+					{props.list.map(v => h(Item, v))}
 				</div>
 
-				<div className="profit-hint">
-					<span>*</span> При выполненной после полировки услуге по защите кузова автомобиля
-				</div>
+				{props.hint && (
+					<div className="profit-hint">
+						<span>*</span> {props.hint}
+					</div>
+				)}
 
 				<div className='profit-call'>
 					<button type='button' class='button'>Заказать звонок</button>

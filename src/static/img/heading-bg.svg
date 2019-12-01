@@ -1,16 +1,12 @@
-<svg width="1920" height="770" viewBox="0 0 1920 770" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1921" height="770">
-		<path d="M524.546 770L0 602V0H1920V562L524.546 770Z" fill="black"/>
-	</mask>
-	<g mask="url(#mask0)">
-		<rect y="-62" width="1952.74" height="1312" fill="url(#pattern0)"/>
-		<rect y="-62" width="1952.74" height="1312" fill="black" fill-opacity="0.3"/>
-	</g>
-	<path d="M527 769L1920 560V596L527 769Z" fill="#FE6128"/>
-	<defs>
-		<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-			<use xlink:href="#image0" transform="translate(-0.00384476) scale(0.000246018 0.000366166)"/>
-		</pattern>
-		<image id="image0" width="4096" height="2731" xlink:href=""/>
-	</defs>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1280px" height="161px" viewBox="0 0 1280 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57 (83077) - https://sketch.com -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(0.000000, 0.568924)">
+            <polygon id="Rectangle" fill="#F8F8F9" points="0 95.147302 204.107357 160.431076 1280 26.2251919 1280 160.431076 0 160.431076"></polygon>
+            <polygon id="Rectangle" fill="#FE6128" points="204.107357 160.431076 1280 26.2251919 1280 -1.42108547e-14"></polygon>
+        </g>
+    </g>
 </svg>

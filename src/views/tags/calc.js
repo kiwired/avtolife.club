@@ -1,80 +1,98 @@
-import { h } from 'preact';
+import { h, Component } from 'preact';
 import { Link } from 'preact-router';
 import Container from './container';
 
-export default function () {
+export default class Calc extends Component {
 
-	const options = [
-		{
-			label: 'Седан',
-			value: 'седан',
-			price: 2000,
-		},
-		{
-			label: 'Хэтчбек',
-			value: 'хэтчбек',
-			price: 2000,
-		},
-		{
-			label: 'Универсал',
-			value: 'универсал',
-			price: 2000,
-		},
-		{
-			label: 'Внедорожник',
-			value: 'внедорожник',
-			price: 2000,
-		},
-		{
-			label: 'Кроссовер',
-			value: 'кроссовер',
-			price: 2000,
-		},
-		{
-			label: 'Купе',
-			value: 'купе',
-			price: 2000,
-		},
-	];
+	state = {
+		selected: []
+	}
 
-	return (
-		<div className="calc">
-			<Container>
+	calc = () => {
+		let price = 0;
 
-				<div className="calc-wrap">
-					<div className="calc-inner">
+		this.state.selected.forEach(v => price += ~~v.price);
 
-						<h2 className="calc-title">
-							Узнать стоимость <small>тонировки вашего авто</small>
-						</h2>
+		return price;
+	}
 
-						<div className="calc-desc">
-							Выберите ваш авто:
+	onInput = (opt) => {
+		return (event) => {
+			let { selected } = this.state;
+
+			if (this.props.amount !== true) {
+				selected = [];
+			}
+
+			const fined = this.state.selected.findIndex(v => v.value == opt.value);
+
+			if (fined === -1) {
+				selected[selected.length] = opt;
+			} else {
+				selected.splice(fined, 1);
+			}
+
+			this.setState({ selected });
+		}
+	}
+
+	isChecked = (opt) => {
+		return this.state.selected.findIndex(v => v.value == opt.value) !== -1;
+	}
+
+	componentDidMount() {
+		this.setState({
+			selected: [ this.props.options[0] ]
+		});
+	}
+
+	render(props) {
+
+		const options = props;
+
+		return (
+			<div className="calc">
+				<Container>
+
+					<div className="calc-wrap">
+						<div className="calc-inner">
+
+							{props.title && (
+								<h2 className="calc-title">
+									Стоимость <small>{props.title}</small>
+								</h2>
+							)}
+
+							{props.text && (
+								<div className="calc-desc">
+									{props.text}
+								</div>
+							)}
+
+							<div className="calc-select">
+								{props.options.map((v, k) => (
+									<label key={k}>
+										<input type='checkbox' name='car' value={v.value} checked={this.isChecked(v)} onInput={this.onInput(v)} />
+										<span>
+											{v.label}
+										</span>
+									</label>
+								))}
+							</div>
+
+							<div className="calc-price">
+								от {this.calc()} ₽
+							</div>
+
+							<div className='calc-call'>
+								<button type='button' class='button'>Заказать звонок</button>
+							</div>
+
 						</div>
-
-						<div className="calc-select">
-							{options.map((v, k) => (
-								<label key={k}>
-									<input type='radio' name='car' value={v.value} />
-									<span>
-										{v.label}
-									</span>
-								</label>
-							))}
-						</div>
-
-						<div className="calc-price">
-							от 2 200,00 ₽
-						</div>
-
-						<div className='calc-call'>
-							<button type='button' class='button'>Заказать звонок</button>
-						</div>
-
 					</div>
-				</div>
-				
-			</Container>
-		</div>
-	)
+
+				</Container>
+			</div>
+		);
+	}
 }

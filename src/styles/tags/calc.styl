@@ -46,10 +46,13 @@
 	margin-left: -15px
 
 	label
-		flex: 0 0 (100% / 3)
+		// flex: 0 0 (100% / 2)
 		padding: 0 0 30px 15px
 
-		> input[type=radio]
+		+screen-medium()
+			// flex: 0 0 (100% / 3)
+
+		> input[type=checkbox]
 			display none
 
 			+ span
@@ -57,6 +60,7 @@
 				color #6C6C6C
 				border: 1px solid
 				border-radius: 25px
+				padding: 0 20px
 
 				font-size: 20px
 				font-weight: 500

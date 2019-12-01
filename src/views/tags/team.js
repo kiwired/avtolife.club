@@ -3,6 +3,36 @@ import { Link } from 'preact-router';
 import Container from './container';
 
 export default function () {
+
+	const list = [
+		{
+			name: 'Антон',
+			position: 'Директор',
+			picture: '',
+			active: true
+		},
+		{
+			name: 'Яков',
+			position: 'Специалист по тонировке / автонилилу',
+			picture: '',
+		},
+		{
+			name: 'Владимир',
+			position: 'Специалист по тонировке / автонилилу',
+			picture: '',
+		},
+		{
+			name: 'Александр',
+			position: 'Детейлинг-мастер',
+			picture: '',
+		},
+		{
+			name: 'Сергей',
+			position: 'Специалист по перетяжке салона',
+			picture: '',
+		},
+	];
+
 	return (
 		<div className="team">
 			<Container>
@@ -12,17 +42,7 @@ export default function () {
 				</h2>
 
 				<div className="team-inner">
-
-					<Item name='Антон' position='[position]' active />
-					
-					<Item name='Яков' position='[position]' />
-
-					<Item name='Александр' position='[position]' />
-
-					<Item name='Владимир' position='[position]' />
-
-					<Item name='Сергей' position='[position]' />
-
+					{list.map(v => h(Item, v))}
 				</div>
 
 			</Container>
@@ -35,7 +55,7 @@ const Item = (props) => {
 	return (
 		<div className="team-item">
 
-			<div className="team-item-img" />
+			<div className="team-item-img" style={{ backgroundImage: `url(${props.picture})` }} />
 
 			<div className="team-item-name">
 				{props.name}

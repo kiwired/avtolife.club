@@ -55,7 +55,7 @@ export default class Map extends Component {
 
 		const script = document.createElement('script');
 
-		script.setAttribute('src', '//maps.googleapis.com/maps/api/js?key=AIzaSyDICEolv6LDWrPHc_p46AQy-tEXsF5FwiY');
+		script.setAttribute('src', `//maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_API}`);
 		// script.setAttribute('src', '//maps.googleapis.com/maps/api/js');
 		script.addEventListener('load', this.onLoadScript);
 

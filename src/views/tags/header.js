@@ -15,7 +15,7 @@ export default function () {
 					<div className='header-nav'>
 						<Link href='/'>Полировка</Link>
 						<Link href='/'>Химчистка</Link>
-						<Link href='/'>Защита авто</Link>
+						<Link href='/'>Защита</Link>
 						<Link href='/'>Тонировка</Link>
 						<Link href='/'>Шумоизоляция</Link>
 						<Link href='/'>Обучение</Link>

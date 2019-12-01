@@ -36,6 +36,8 @@
 	color #777
 	text-align center
 
+	padding: 0 50px 0 0
+
 	&::after
 		content ''
 		display block
@@ -50,7 +52,7 @@
 		width: 150px
 		height: @width
 		border-radius: 50%
-		background: alpha(white, .1)
+		background: no-repeat center / cover alpha(black, .1)
 		margin: 0 0 10px
 
 	&-name
@@ -58,7 +60,9 @@
 		color #fff
 
 	&-position
-		// 
+		line-height: 1.4
+		margin-top: 5px
 
 	+screen-medium()
-		flex: 0 0 (100% / 6)
+		// flex: 0 0 (100% / 6)
+		flex: 0 0 150px
