@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ba7d6981bf4bc33a0825b259826c01cd",
-    "url": "/404.md"
+    "revision": "31492b76bb69a89f532da69b56530e73",
+    "url": "/404.html"
   },
   {
-    "url": "/app.0850bb2e95eaef300944.js"
+    "url": "/app.700b0c2abed033e19970.js"
   },
   {
     "revision": "dc177189be57c288eabcce9fff79a7ef",
@@ -119,7 +119,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/thumbs/tinting.jpg"
   },
   {
-    "revision": "868737f0ddc02e8dd32195e3dad1c199",
+    "revision": "31492b76bb69a89f532da69b56530e73",
     "url": "/index.html"
   },
   {
@@ -127,6 +127,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/manifest.json"
   },
   {
-    "url": "/vendor.0850bb2e95eaef300944.js"
+    "url": "/vendor.700b0c2abed033e19970.js"
   }
 ]);

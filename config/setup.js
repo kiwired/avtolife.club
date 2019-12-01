@@ -23,6 +23,10 @@ module.exports = isProd => {
 		new HTML({
 			template: 'src/index.html'
 		}),
+		new HTML({
+			filename: '404.html',
+			template: 'src/index.html'
+		}),
 		new ImageMin({
 			test: /\.(jpe?g|png|gif|svg)$/i,
 			disable: !isProd, // Disable during development
