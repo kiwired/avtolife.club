@@ -11,8 +11,7 @@
 		"dev": "nuxt",
 		"build": "nuxt build",
 		"start": "nuxt start",
-		"generate": "nuxt generate",
-		"deploy": "push-dir --dir=dist --branch=docs --cleanup"
+		"heroku-postbuild": "npm run build"
 	},
 	"dependencies": {
 		"@nuxtjs/axios": "^5.9.5",
