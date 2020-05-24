@@ -1,0 +1,78 @@
+doctype html
+html
+	head
+		block head
+			meta(charset='utf-8')
+			meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+			link(rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto:300,300i,400,500,500i&display=swap&subset=cyrillic')
+			link(rel='stylesheet' href='/assets/styles.css')
+
+	body
+		.body-inner
+
+			.home: .container: .home-inner
+
+				.home-head
+
+					.home-head-logo
+						img(src='/img/logo-small.svg' alt='avto life - Основа качественного и безукоризненного результата')
+						| Основа качественного и безукоризненного результата
+
+					.home-head-address г.Омск, ул.Химиков, 60
+					.home-head-phone
+						a(href='tel:+73812492500') +7 (3812) 49-25-00
+						a(href='tel:+79083156307') +7 (908) 315-63-07
+					
+					.home-head-social
+						a(href='//vk.com/clubcarbon')
+						a(href='//instagram.com/avtolife.club')
+						a(href='//wa.me/79083156307')
+
+					.home-head-call
+						a.button(href='#call') Записаться
+				
+					block body
+
+
+				.home-nav
+					
+					a.home-nav-item(href='/services/polishing' style='background-image: url(/img/thumbs/polishing.jpg)')
+						.home-nav-item-bg
+						.home-nav-item-title Полировка
+					
+					a.home-nav-item(href='/services/cleaning' style='background-image: url(/img/thumbs/cleaning.jpg)')
+						.home-nav-item-bg
+						.home-nav-item-title Химчистка
+					
+					div.home-nav-item.has-child(href='/services/protection' style='background-image: url(/img/thumbs/protection.jpg)')
+						.home-nav-item-bg
+						.home-nav-item-title Защита
+						.home-nav-item-list
+							a(href='/services/protection') Бронирование
+							a(href='/services/ceramics') Керамика
+							a(href='/services/alarm') Уст.сигнализации
+					
+					div.home-nav-item.has-child(href='/services/tinting-auto' style='background-image: url(/img/thumbs/tinting.jpg)')
+						.home-nav-item-bg
+						.home-nav-item-title Тонировка
+						.home-nav-item-list
+							a(href='/services/tinting-auto') Автоматическая
+							a(href='/services/tinting-removable') Съемная
+							a(href='/services/tinting-athermal') Атермальная
+							a(href='/services/tinting-gost') по ГОСТу
+							a(href='/services/tinting-light') Тонировка фар
+
+					a.home-nav-item(href='/services/soundproofing' style='background-image: url(/img/thumbs/soundproofing.jpg)')
+						.home-nav-item-bg
+						.home-nav-item-title Шумоизоляция
+					
+					a.home-nav-item(href='/services/learning' style='background-image: url(/img/thumbs/learning.jpg)')
+						.home-nav-item-bg
+						.home-nav-item-title Обучение
+			
+
+		#call.modal.hidden
+			//- 
+
+
+		script(src='/assets/app.js')

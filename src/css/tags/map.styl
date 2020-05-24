@@ -1,0 +1,98 @@
+
+.map
+	position relative
+	padding: 70px 0 0
+	margin-bottom: -35px
+	// background: url(/img/map-bg.svg) no-repeat top center / auto
+	// background: #eee
+
+	&-card
+		max-width: 410px
+		margin: 0 auto 70px
+
+	&-wrap
+		width: 100%
+		height: 600px
+		background: #333
+
+	+screen-medium()
+		background: #eee
+		padding: 130px 0
+
+		&-card
+			position relative
+			z-index 1
+			background: #fff
+			box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.15)
+			// max-width: 410px
+			margin: 0
+			padding: 40px 50px
+
+		&-wrap
+			position absolute
+			top 0
+			left 0
+			height 100%
+
+
+
+.map-logo
+	display block
+	max-width 200px
+	margin: 0 0 35px
+
+	+screen-medium()
+		max-width 170px
+
+
+// .map-hr
+// 	margin: 15px 0
+// 	border-bottom: 1px solid #EDE9E9
+
+.map-addres,
+.map-time,
+.map-navigate
+	// flex: 1 0 auto
+	padding: 0 0 15px
+
+	color #464646
+	font-family: 'Aleo', Helvetica, Arial, sans-serif
+	font-size: 16px
+	line-height: 28px
+
+	> span
+		display block
+
+	> a
+		color: inherit
+		font-size: 30px
+
+.map-time,
+.map-navigate
+	padding: 15px 0
+	border-top: 1px solid #EDE9E9
+
+.map-time
+	font-size: 14px
+
+	> b
+		font-size: 20px
+
+.map-navigate
+
+	> span
+		font-size: 14px
+
+	> a
+		color #464646
+		font-size: 18px
+		font-weight: 600
+		line-height: 28px
+
+	+screen-medium()
+		display none
+
+
+.map-call
+	text-align center
+	margin: 15px 0 0

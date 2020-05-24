@@ -1,0 +1,62 @@
+// ========================================================================
+// Component: Grid
+//=========================================================================
+
+.grid
+	display: flex
+	flex-flow: row wrap
+	// justify-content: flex-start
+	// align-content: flex-start
+	// align-items: flex-start
+
+	// Makes grid more robust so that it can be used with other block elements like lists
+	margin: 0 auto 0 calc(-1 * var(--magin))
+	padding: 0
+	list-style: none
+
+	> *
+		order: 0
+		flex: 0 0 auto
+		// Makes grid more robust so that it can be used with other block elements
+		margin 0
+		padding-left: var(--margin)
+
+		width: 100%
+	
+	&-reverse
+		flex-direction: row-reverse
+
+	&-center
+		justify-content: center
+
+	&-stretch
+		align-items: stretch
+
+	&-middle
+		align-items: center
+
+	&-small
+		grid-size(0)
+
+	+screen-medium()
+		&-large
+			grid-size(40px)
+
+
+// Sub-objects: `width-*`
+// ==========================================================================
+
+[class^='width']
+	width: 100%
+
+for _row in grid-columns
+	for col in (1.._row)
+		.width-{col}-{_row}
+			width: ((col/_row)*100)%
+
++screen-medium()
+
+	for _row in grid-columns
+		for col in (1.._row)
+			.width-medium-{col}-{_row}
+				width: ((col/_row)*100)%
