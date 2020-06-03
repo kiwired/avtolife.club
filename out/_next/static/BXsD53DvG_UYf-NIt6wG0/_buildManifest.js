@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = (function(a){return {"/":[a],"/index":[a],"/services/polishing":["static\u002Fcss\u002Fdf512d6b4509a1ee0302.css"]}}("static\u002Fcss\u002F7f98b9ecc61735a1562b.css"));self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
