@@ -1,0 +1,98 @@
+@use "sass:color";
+@import '../../styles/core/mixin.scss';
+
+@mixin size($height, $padding, $border: 1, $fontSize: 16) {
+	// #{$property}: $ltr-value;
+	font-size: $fontSize;
+	line-height: 1;
+	// padding: rem(sub(height, font-size) / 2) (rem(padding))
+	// padding: rem(sub(height, $fontSize) / 2 + 1) (rem(padding)) rem(sub(height, $fontSize) / 2 - 1)
+	padding: #{($height - $fontSize) / ($border * 2) / 16 * 1rem} $padding
+}
+
+@mixin modi($color, $bg) {
+	color: $color;
+	background: $bg;
+	border-color: $bg;
+
+	&:hover,
+	&:focus,
+	&.active,
+	&:disabled {
+		color: $color;
+		background: color.adjust($bg, $lightness: -5%);
+		border-color: color.adjust($bg, $lightness: -5%);
+	}
+}
+
+.button {
+	appearance: none;
+
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	
+	cursor: pointer;
+	outline: none;
+	border: none;
+	box-shadow: none;
+	border-radius: rem(3px);
+
+	font: inherit;
+	font-family: 'Aleo', Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	// text-transform: uppercase;
+	color: white;
+
+	transition: .15s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+		// background: darken(background, 15%)
+		// background: alpha(#fff, .15);
+		background: rgba(255, 255, 255, 0.15);
+		transform: rotate(-4.7deg) translate(0, 55%) scale(1.1);
+		pointer-events: none;
+	}
+
+	&:hover,
+	&:focus {
+		outline: none;
+		text-decoration: none;
+	}
+
+
+	// button-size(65px, 50px, 20px)
+
+	// +screen-medium()
+		// button-size(65px, 50px, 20px)
+
+	// &-small
+	// 	button-size(44px, 30px, 16px)
+
+	// 	+screen-medium()
+	// 		button-size(44px, 30px, 16px)
+
+	@include size(rem(56px), rem(30px), rem(1px), rem(20px));
+	@include modi(#fff, #F25A23);
+
+	@include medium {
+		@include size(rem(65px), rem(50px), rem(1px), rem(20px));
+	}
+}
+
+.small {
+	@include size(rem(44px), rem(30px), rem(1px), rem(18px));
+
+	@include medium {
+		@include size(rem(44px), rem(30px), rem(1px), rem(18px));
+	}
+}

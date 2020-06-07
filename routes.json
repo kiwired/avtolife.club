@@ -1,0 +1,68 @@
+[
+	{
+		"href": "/services/polishing",
+		"thumb": "/img/thumbs/polishing.jpg",
+		"title": "Полировка"
+	},
+	{
+		"href": "/services/cleaning",
+		"thumb": "/img/thumbs/cleaning.jpg",
+		"title": "Химчистка"
+	},
+	{
+		"href": "/",
+		"thumb": "/img/thumbs/protection.jpg",
+		"title": "Защита",
+		"childs": [
+			{
+				"href": "/services/protection",
+				"title": "Бронирование"
+			},
+			{
+				"href": "/services/alarm",
+				"title": "Уст.сигнализации"
+			},
+			{
+				"href": "/services/carwash",
+				"title": "Детейлинг мойка"
+			}
+		]
+	},
+	{
+		"href": "/",
+		"thumb": "/img/thumbs/tinting.jpg",
+		"title": "Тонировка",
+		"childs": [
+			{
+				"href": "/services/tinting-auto",
+				"title": "Автоматическая"
+			},
+			{
+				"href": "/services/tinting-removable",
+				"title": "Съемная"
+			},
+			{
+				"href": "/services/tinting-athermal",
+				"title": "Атермальная"
+			},
+			{
+				"href": "/services/tinting-gost",
+				"title": "по ГОСТу"
+			},
+			{
+				"href": "/services/tinting-light",
+				"title": "Тонировка фар"
+			}
+		]
+	},
+	{
+		"href": "/services/soundproofing",
+		"thumb": "/img/thumbs/soundproofing.jpg",
+		"title": "Шумоизоляция"
+	},
+	{
+		"href": "/services/learning",
+		"thumb": "/img/thumbs/learning.jpg",
+		"title": "Обучение"
+	}
+]
