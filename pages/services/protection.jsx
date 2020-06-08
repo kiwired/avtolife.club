@@ -18,9 +18,9 @@ import Team from '../../tags/team'
 import Map from '../../tags/map'
 
 const SEO = {
-	title: '',
-	keywords: '',
-	description: '',
+	title: 'Бронирование автомобиля пленкой в Омске',
+	keywords: 'Бронирование автомобиля пленкой Омск',
+	description: 'Компания «AvtoLife» оказывает услуги по бронированию авто пленкой в Омске. Бронирующая пленка позволит защитить кузов авто от мелких сколов и царапин',
 }
 
 export default () => {
@@ -28,7 +28,7 @@ export default () => {
 	return (
 		<>
 
-			<NextSeo config={SEO} />
+			<NextSeo {...SEO} />
 
 			<Header />
 

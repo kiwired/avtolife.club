@@ -25,11 +25,11 @@ export default () => {
 			name: 'Александр',
 			position: 'Детейлинг-мастер'
 		},
-		{
-			// picture: '/img/team/01.jpg',
-			name: 'Сергей',
-			position: 'Специалист по перетяжке салона'
-		},
+		// {
+		// 	// picture: '/img/team/01.jpg',
+		// 	name: 'Сергей',
+		// 	position: 'Специалист по перетяжке салона'
+		// },
 	]
 
 	return (

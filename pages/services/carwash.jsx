@@ -28,7 +28,7 @@ export default () => {
 	return (
 		<>
 
-			<NextSeo config={SEO} />
+			<NextSeo {...SEO} />
 
 			<Header />
 

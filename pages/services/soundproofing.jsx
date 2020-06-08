@@ -18,9 +18,9 @@ import Team from '../../tags/team'
 import Map from '../../tags/map'
 
 const SEO = {
-	title: '',
-	keywords: '',
-	description: '',
+	title: 'Шумоизоляция автомобиля в Омске',
+	keywords: 'Шумоизоляция автомобиля',
+	description: 'Компания «AvtoLife» оказывает услуги по шумоизоляции автомобилей всех типов и классов в Омске. Несколько видов шумоизоляции – ценовые предложения от эконом до люкс. Предоставляется фотоотчет',
 }
 
 export default () => {
@@ -28,7 +28,7 @@ export default () => {
 	return (
 		<>
 
-			<NextSeo config={SEO} />
+			<NextSeo {...SEO} />
 
 			<Header />
 

@@ -18,7 +18,7 @@ import Team from '../../tags/team'
 import Map from '../../tags/map'
 
 const SEO = {
-	title: '',
+	title: 'Детейлинг полировка авто в Омске',
 	keywords: '',
 	description: '',
 }
@@ -28,7 +28,7 @@ export default () => {
 	return (
 		<>
 
-			<NextSeo config={SEO} />
+			<NextSeo {...SEO} />
 
 			<Header />
 

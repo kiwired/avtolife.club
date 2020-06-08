@@ -10,6 +10,7 @@ import {
 import '../styles/index.scss'
 
 const SEO = {
+	// title: "%s - AvtoLife",
 	titleTemplate: '%s',
 	openGraph: {
 		type: 'website',

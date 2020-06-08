@@ -7,7 +7,6 @@ export default ({ keys }) => {
 	return (
 		<div className={css.container}>
 			<div className={css.list}>
-				[pics]
 			</div>
 		</div>
 	)

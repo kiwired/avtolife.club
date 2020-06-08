@@ -3,7 +3,7 @@
 .container {
 	padding: 60px calc(var(--margin) / 2) 0;
 
-	&:nth-child(even) .flex {
+	&:nth-child(odd) .flex {
 		@include medium {
 			flex-flow: row-reverse nowrap;
 		}
