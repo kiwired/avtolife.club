@@ -2,27 +2,31 @@ import React, { useState, useEffect, useLayoutEffect, useCallback, useRef, forwa
 import { useTransition, useSpring, useChain, animated, config } from 'react-spring'
 import Link from 'next/link'
 
-import list from '../../routes.json'
-
 import Modal from '../../forms/call'
+import Nav from './Nav'
+import Address from './Address'
 
 import css from './index.module.scss'
 
 export default () => {
 
 	const [open, setOpen] = useState(false)
+	const [mobile, setMobile] = useState(false)
 
-	const onScroll = () => {
-		if (!open && window.innerWidth > 768) {
-			setOpen(true)
+	const onResize = () => {
+		if (mobile && window.innerWidth > 640) {
+			setMobile(false)
+		} else if (!mobile && window.innerWidth <= 640) {
+			setMobile(true)
 		}
 	}
 
 	const onToggle = useCallback(() => setOpen(prev => {
 		const next = !prev
 
-		if (window.innerWidth > 768) {
-			return next
+		if (window.innerWidth > 640) {
+			document.body.removeAttribute('style')
+			return false
 		}
 
 		if (next) {
@@ -35,46 +39,17 @@ export default () => {
 	}))
 
 	useEffect(() => {
-
-		// console.log('useEffect')
-		window.addEventListener('load', onScroll)
-		window.addEventListener('resize', onScroll)
-		// window.addEventListener('scroll', onScroll)
+		onResize()
+		// window.addEventListener('load', onResize)
+		window.addEventListener('resize', onResize)
+		// window.addEventListener('scroll', onResize)
 
 		return () => {
-			window.removeEventListener('load', onScroll)
-			window.removeEventListener('resize', onScroll)
-			// window.removeEventListener('scroll', onScroll)
+			// window.removeEventListener('load', onResize)
+			window.removeEventListener('resize', onResize)
+			// window.removeEventListener('scroll', onResize)
 		}
 	})
-
-
-	const from = {
-		opacity: 0,
-		transform: 'translate(1.5rem, 0)'
-	}
-
-	const trans = useTransition(open, null, {
-		from: from,
-		enter: {
-			opacity: 1,
-			transform: 'translate(0, 0)'
-		},
-		leave: from
-	})
-
-	// const style = useSpring({
-	// 	// config: config.stiff,
-	// 	from: {
-	// 		opacity: 0
-	// 	},
-	// 	to: {
-	// 		// ...rect.from,
-	// 		opacity: open ? 1 : 0,
-	// 		// transform: open ? `scale(${rect.scale})` : 'scale(0.1)'
-	// 	}
-	// })
-
 
 	return (
 		<header className={css.container}>
@@ -96,52 +71,49 @@ export default () => {
 					<span />
 				</span>
 
-				{trans.map(({ item, props, key }) => !item ? null : (
-					<animated.div key={key} className={css.wrap} style={props}>
-						<div className={css.overflow} />
-						<div className={css.nav}>
-							{list.map((val, key) => {
-
-								const el = (v, k) => {
-									return (
-										<Link key={k} href={v.href}>
-											<a>
-												{v.title}
-											</a>
-										</Link>
-									)
-								}
-
-								if (val.childs) {
-									return (
-										<span key={key}>
-											<span>{val.title}</span>
-											<ul>
-												{val.childs.map((v, k) => (
-													<li key={k}>
-														{el(v, k)}
-													</li>
-												))}
-											</ul>
-										</span>
-									)
-								}
-
-								return el(val, key)
-							})}
-						</div>
-
-						<Modal className={css.call} action='Записаться' />
-
-						<div className={css.address}>
-							<span>г. Омск, ул. Химиков, 60</span>
-							<a href="tel:83812492500">+7 (3812) 49-25-00</a>
-						</div>
-
-					</animated.div>
-				))}
+				<Wrap isMobile={mobile} open={open} />
 
 			</div>
 		</header>
 	)
+}
+
+
+const Wrap = ({ isMobile = false, open = false }) => {
+	console.log('wrap', isMobile, open)
+	
+
+	if (!isMobile) {
+		return (
+			<div className={css.wrap}>
+				<Nav />
+				<Modal className={css.call} action='Записаться' />
+				<Address />
+			</div>
+		)
+	}
+
+	const from = {
+		opacity: 0,
+		transform: 'translate(1.5rem, 0)'
+	}
+
+	const trans = useTransition(open, null, {
+		from: from,
+		leave: from,
+		enter: {
+			opacity: 1,
+			transform: 'translate(0, 0)'
+		}
+	})
+
+	return trans.map(({ item, props, key }) => !item ? null : (
+		<animated.div key={key} className={css.wrap} style={props}>
+			<div className={css.overflow} />
+			<div className={css.bg}>
+				<Nav />
+				<Address />
+			</div>
+		</animated.div>
+	))
 }

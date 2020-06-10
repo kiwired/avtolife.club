@@ -35,14 +35,15 @@
 .title {
 	text-align: center;
 	color: #fff;
-	font-size: rem(50px);
-	line-height: 1.3;
+	font-size: rem(42px);
+	line-height: 1.2;
 	font-weight: 600;
 
 	> small {
 		display: block;
 		font-size: rem(28px);
 		font-weight: 400;
+		margin-top: rem(5px)
 	}
 
 	@include medium {

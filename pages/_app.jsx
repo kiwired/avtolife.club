@@ -21,12 +21,20 @@ const SEO = {
 
 export default ({ Component, pageProps }) => {
 
-	const [viewport, setViewport] = React.useState('user-scalable=no, width=1280')
+	// const [viewport, setViewport] = React.useState('user-scalable=no, width=1280')
+	const [viewport, setViewport] = React.useState('width=device-width, initial-scale=1.0, maximum-scale=1.0')
 
 	useEffect(() => {
+
+		const viewport = document.querySelector('meta[name="viewport"]');
+
 		const onResize = () => {
-			let width = window.innerWidth || document.documentElement.innerWidth
+
+			// let meta = 'width=device-width, initial-scale=1.0, maximum-scale=1.0'
 			let meta = 'width=device-width, initial-scale=1.0, maximum-scale=1.0'
+			viewport.setAttribute('content', 'width=device-width')
+
+			let width = window.innerWidth || document.documentElement.innerWidth
 			let fontSize = (width / 480 * 100) + '%'
 
 			if (width > 640) {
@@ -34,7 +42,8 @@ export default ({ Component, pageProps }) => {
 				meta = 'user-scalable=no, width=1280'
 			}
 
-			setViewport(meta)
+			// setViewport(meta)
+			viewport.setAttribute('content', meta)
 			document.documentElement.style.fontSize = fontSize
 		}
 
