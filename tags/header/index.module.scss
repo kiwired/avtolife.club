@@ -46,9 +46,22 @@
 		display: none;
 	}
 
+
+	&.active span {
+		&:nth-child(1) {
+			transform: translate(-50%, 0) rotate(45deg);
+		}
+		&:nth-child(2) {
+			width: rem(0px);
+		}
+		&:nth-child(3) {
+			transform: translate(-50%, 0) rotate(-45deg);
+		}
+	}
+
 	> span {
 		display: block;
-		width: rem(45px);
+		width: rem(40px);
 		height: rem(3px);
 		background: #fff;
 		position: absolute;
@@ -59,23 +72,13 @@
 		transition: 0.2s var(--easing);
 
 		&:nth-child(1) {
-			transform: translate(-50%, -1.25rem);
+			transform: translate(-50%, -0.9rem);
 		}
 		&:nth-child(2) {
 			transform: translate(-50%, 0);
 		}
 		&:nth-child(3) {
-			transform: translate(-50%, 1.25rem);
-		}
-
-		.is-header &:nth-child(1) {
-			transform: translate(-50%, 0) rotate(45deg);
-		}
-		.is-header &:nth-child(2) {
-			width: rem(0px);
-		}
-		.is-header &:nth-child(3) {
-			transform: translate(-50%, 0) rotate(-45deg);
+			transform: translate(-50%, 0.9rem);
 		}
 	}
 }
@@ -96,12 +99,14 @@
 @include small {
 
 	.wrap {
-		display: none;
-		position: absolute;
+		// display: none;
+		position: fixed;
 		top: 0;
 		right: 0;
 		width: 70vw;
 		height: 100vh;
+
+		overflow: auto;
 
 		background: #000;
 		color: #fff;
@@ -113,7 +118,6 @@
 	}
 
 	.overflow {
-		display: none;
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -290,18 +294,19 @@
 }
 
 .address {
-	display: none;
+	display: block;
+	// display: none;
 	font-size: rem(20px);
 	font-family: 'Aleo', Helvetica, Arial, sans-serif;
 	color: #C9C9C9;
-	margin: 0 0 0 auto;
-	text-align: right;
+	margin: 0 0 var(--margin) var(--margin);
+	// text-align: right;
 
 	@include medium {
-		display: block;
 		position: absolute;
 		top: 100%;
 		right: var(--margin);
+		text-align: right;
 		
 		margin: var(--margin) 0 0 rem(110px);
 
@@ -321,9 +326,10 @@
 
 .call {
 	display: none;
-	margin: 0 0 0 auto;
+	// margin: 0 0 var(--margin) var(--margin);
 
 	@include medium {
 		display: block;
+		margin: 0 0 0 auto;
 	}
 }
