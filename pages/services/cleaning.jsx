@@ -82,43 +82,47 @@ export default () => {
 
 			<Price
 				title="Узнать стоимость химчистки"
-				label="Выберите места чистки:"
 				list={[
 					{
-						thumb: '',
-						label: 'Салон',
-						value: 6000,
-					},
-					{
-						thumb: '',
-						label: 'Потолок',
-						value: 2000,
-						multi: true
-					},
-					{
-						thumb: '',
-						label: 'Сидения',
-						value: 3000,
-						multi: true
-					},
-					{
-						thumb: '',
-						label: 'Двигатель',
-						value: 3000,
-						multi: true
-					},
-					{
-						thumb: '',
-						label: 'Багажник',
-						value: 800,
-						multi: true
-					},
-					{
-						thumb: '',
-						label: 'Озонирование',
-						value: 2500,
-						multi: true
-					},
+						title: 'Выберите места чистки:',
+						list: [
+							{
+								thumb: '',
+								label: 'Салон',
+								value: 6000,
+							},
+							{
+								thumb: '',
+								label: 'Потолок',
+								value: 2000,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Сидения',
+								value: 3000,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Двигатель',
+								value: 3000,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Багажник',
+								value: 800,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Озонирование',
+								value: 2500,
+								multi: true
+							},
+						]
+					}
 				]}
 			/>
 

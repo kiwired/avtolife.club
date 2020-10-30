@@ -2,7 +2,7 @@ import React from 'react'
 
 import css from './index.module.scss'
 
-export default ({ list }) => {
+export default function Edge({ list }) {
 	return (
 		<div className={css.container}>
 			<div className={css.inner}>

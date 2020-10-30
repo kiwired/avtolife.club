@@ -2,7 +2,7 @@ import React from 'react'
 
 import css from './index.module.scss'
 
-export default () => {
+export default function Team() {
 
 	const list = [
 		// {

@@ -4,7 +4,7 @@ import Modal from '../../forms/call'
 
 import css from './index.module.scss'
 
-export default () => {
+export default function Footer() {
 	return (
 		<div className={css.footer}>
 			<div className={css.inner}>

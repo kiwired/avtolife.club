@@ -7,12 +7,12 @@ import Head from '../tags/head'
 import Map from '../tags/map'
 
 const SEO = {
-	title: '',
+	title: 'Страница не найдена',
 	keywords: '',
-	description: '',
+	description: 'Ошибка 404. Страница не найдена',
 }
 
-export default () => {
+export default function NotFound() {
 
 	return (
 		<>

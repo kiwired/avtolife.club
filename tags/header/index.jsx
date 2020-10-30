@@ -8,7 +8,7 @@ import Address from './Address'
 
 import css from './index.module.scss'
 
-export default () => {
+export default function Header() {
 
 	const [open, setOpen] = useState(false)
 	const [mobile, setMobile] = useState(false)
@@ -80,8 +80,6 @@ export default () => {
 
 
 const Wrap = ({ isMobile = false, open = false }) => {
-	console.log('wrap', isMobile, open)
-	
 
 	if (!isMobile) {
 		return (

@@ -5,7 +5,7 @@ import list from '../../routes.json'
 
 import css from './index.module.scss'
 
-export default () => {
+export default function Nav() {
 	return (
 		<div className={css.nav}>
 			{list.map((val, key) => {

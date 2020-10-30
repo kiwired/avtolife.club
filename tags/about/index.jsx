@@ -4,7 +4,7 @@ import { useSpring, animated } from 'react-spring'
 
 import css from './index.module.scss'
 
-export default () => {
+export default function About () {
 
 	const list = [
 		{

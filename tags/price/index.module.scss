@@ -84,9 +84,11 @@
 				transition: 0.15s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 			}
 
-			+ span:hover {
-				color: #fff;
-				border-color: #fff;
+			@include medium {
+				+ span:hover {
+					color: #fff;
+					border-color: #fff;
+				}
 			}
 
 			&:checked + span {

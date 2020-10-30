@@ -4,7 +4,7 @@ import Modal from '../../forms/call'
 
 import css from './index.module.scss'
 
-export default ({ list = [], hint }) => {
+export default function Profit({ list = [], hint }) {
 
 	return (
 		<div className={css.container}>

@@ -14,10 +14,10 @@
     "deploy": "rm -rf node_modules/.cache && npm run build && npm run export && touch out/.nojekyll && git add -f out/ && git commit -m \"deploy next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
-    "next": "latest",
-    "next-seo": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "next": "^10.0.0",
+    "next-seo": "^4.14.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-spring": "^8.0.27",
     "react-visibility-sensor": "^5.1.1",
     "sass": "^1.26.5"

@@ -3,7 +3,7 @@ import { useTransition, animated } from 'react-spring'
 
 import css from './index.module.scss'
 
-export default ({ list }) => {
+export default function Steps({ list }) {
 
 	list = list.map((v, id) => ({ ...v, id }))
 

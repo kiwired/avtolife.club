@@ -82,50 +82,54 @@ export default () => {
 
 			<Price
 				title="Стоимость тонирования задней полусферы"
-				label="Выберите класс авто:"
 				list={[
 					{
-						thumb: '',
-						label: 'Малый',
-						value: 3000,
-					},
-					{
-						thumb: '',
-						label: 'Средний',
-						value: 2700,
-					},
-					{
-						thumb: '',
-						label: 'Бизнес',
-						value: 3100,
-					},
-					{
-						thumb: '',
-						label: 'Паркетник',
-						value: 3000,
-					},
-					{
-						thumb: '',
-						label: 'Внедорожник',
-						value: 3500,
-					},
-					{
-						thumb: '',
-						label: 'Представительский',
-						value: 3800,
-					},
-					{
-						thumb: '',
-						label: 'Лобовое стекло',
-						value: 1900,
-						multiple: true
-					},
-					{
-						thumb: '',
-						label: 'Передние стекла',
-						value: 1400,
-						multiple: true
-					},
+						title: 'Выберите класс авто:',
+						list: [
+							{
+								thumb: '',
+								label: 'Малый',
+								value: 3000,
+							},
+							{
+								thumb: '',
+								label: 'Средний',
+								value: 2700,
+							},
+							{
+								thumb: '',
+								label: 'Бизнес',
+								value: 3100,
+							},
+							{
+								thumb: '',
+								label: 'Паркетник',
+								value: 3000,
+							},
+							{
+								thumb: '',
+								label: 'Внедорожник',
+								value: 3500,
+							},
+							{
+								thumb: '',
+								label: 'Представительский',
+								value: 3800,
+							},
+							{
+								thumb: '',
+								label: 'Лобовое стекло',
+								value: 1900,
+								multiple: true
+							},
+							{
+								thumb: '',
+								label: 'Передние стекла',
+								value: 1400,
+								multiple: true
+							},
+						]
+					}
 				]}
 			/>
 

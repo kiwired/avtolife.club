@@ -82,27 +82,31 @@ export default () => {
 
 			<Price
 				title="Узнать стоимость мойки"
-				label="Выберите тип мойки:"
 				list={[
 					{
-						thumb: '',
-						label: 'Экспресс',
-						value: 300,
-					},
-					{
-						thumb: '',
-						label: 'Регулярная',
-						value: 500
-					},
-					{
-						thumb: '',
-						label: 'Детейлинг',
-						value: 1100
-					},
-					{
-						thumb: '',
-						label: 'Премиум',
-						value: 1700
+						title: 'Выберите тип мойки:',
+						list: [
+							{
+								thumb: '',
+								label: 'Экспресс',
+								value: 300,
+							},
+							{
+								thumb: '',
+								label: 'Регулярная',
+								value: 500
+							},
+							{
+								thumb: '',
+								label: 'Детейлинг',
+								value: 1100
+							},
+							{
+								thumb: '',
+								label: 'Премиум',
+								value: 1700
+							}
+						]
 					}
 				]}
 			/>

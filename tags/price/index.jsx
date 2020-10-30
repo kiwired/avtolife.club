@@ -5,9 +5,18 @@ import Modal from '../../forms/call'
 
 import css from './index.module.scss'
 
-export default ({ title, label, list = [] }) => {
+export default function Price({ title, label, list = [] }) {
 
-	list = list.map((v, id) => ({ ...v, id }))
+	let ungroup = []
+
+	for (let i = 0; i < list.length; i++) {
+		for (let y = 0; y < list[i].list.length; y++) {
+			const item = list[i].list[y];
+			ungroup[`${i}:${y}`] = list[i].list[y]
+		}
+	}
+
+	// list = list.map((v, id) => ({ ...v, id }))
 
 	let ref = null
 
@@ -18,8 +27,8 @@ export default ({ title, label, list = [] }) => {
 		let isActive = prev.includes(key)
 
 		if (isRadio && !isActive) {
-			for (let i = 0; i < list.length; i++) {
-				if (!list[i].multi) {
+			for (let i = 0; i < ungroup.length; i++) {
+				if (!ungroup[i].multi) {
 					prev = [...prev.filter(k => k !== i)]
 				}
 			}
@@ -46,41 +55,51 @@ export default ({ title, label, list = [] }) => {
 		setPrice(price)
 	})
 
-	const trans = useTransition(list[0], item => item.id, {
+	/*const trans = useTransition(list[0], item => item.id, {
 		from: { opacity: 0 },
 		enter: { opacity: 1 },
 		leave: { opacity: 0 }
-	})
+	})*/
 
 	return (
 		<div className={css.container}>
 			<div className={css.flex}>
 
-				<div className={css.row}>
+				<div ref={e => ref = e} className={css.row}>
 
 					<h2 className={css.title}>{title}</h2>
-					
-					<div className={css.desc}>{label}</div>
 
-					<div className={css.list} ref={e => ref = e}>
-						{list.map((val, key) => {
-							let type = val.multi ? 'checkbox' : 'radio'
-							let name = val.multi ? `price[${key}]` : 'price[]'
-							return (
-								<Input
-									key={key}
-									type={type}
-									name={name}
-									value={val.value}
-									label={val.label}
-									onClick={onInput(key, !val.multi)}
-									onChange={() => {}}
-									checked={active.includes(key)}
-									// defaultChecked={active === key}
-								/>
-							)
-						})}
-					</div>
+					{list.map((v, k) => {
+						return (
+							<div key={k}>
+								<div className={css.desc}>{v.title}</div>
+								<div className={css.list}>
+									{v.list.map((val, key) => {
+										let id = `${k}:${key}`
+										let type = val.multi ? 'checkbox' : 'radio'
+										let name = val.multi ? `price[${id}]` : 'price[]'
+										return (
+											<Input
+												key={id}
+												type={type}
+												name={name}
+												value={val.value}
+												label={val.label}
+												onClick={onInput(id, !val.multi)}
+												onChange={() => { }}
+												checked={active.includes(id)}
+											// defaultChecked={active === key}
+											/>
+										)
+									})}
+								</div>
+							</div>
+						)
+					})}
+					
+					
+
+					
 
 					<div className={css.price}>от {price} ₽</div>
 
@@ -91,9 +110,9 @@ export default ({ title, label, list = [] }) => {
 				</div>
 
 				<div className={css.row}>
-					{trans.map(({ item, props, key }) => (
+					{/* {trans.map(({ item, props, key }) => (
 						<animated.div key={key} className={css.bg} style={{ ...props, backgroundImage: `url(${item.thumb})` }} />
-					))}
+					))} */}
 				</div>
 
 			</div>

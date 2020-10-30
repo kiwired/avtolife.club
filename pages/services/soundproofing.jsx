@@ -82,43 +82,48 @@ export default () => {
 
 			<Price
 				title="Узнать стоимость шумоизоляции"
-				label="Выберите места установки:"
 				list={[
 					{
-						thumb: '',
-						label: 'Салон', // пол, потолок, двери, багажник, колесные арки изнутри
-						value: 28000,
-					},
-					{
-						thumb: '',
-						label: 'Двери',
-						value: 3000,
-						multi: true
-					},
-					{
-						thumb: '',
-						label: 'Пол',
-						value: 12000,
-						multi: true
-					},
-					{
-						thumb: '',
-						label: 'Потолок',
-						value: 5000,
-						multi: true
-					},
-					{
-						thumb: '',
-						label: 'Багажник',
-						value: 7000,
-						multi: true
-					},
-					{
-						thumb: '',
-						label: 'Колесные арки снаружи',
-						value: 3000,
-						multi: true
-					},
+						title: 'Выберите места установки:',
+						list: [
+							{
+								thumb: '',
+								label: 'Салон', // пол, потолок, двери, багажник, колесные арки изнутри
+								value: 28000,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Пол',
+								value: 12000,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Двери',
+								value: 3000,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Потолок',
+								value: 5000,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Багажник',
+								value: 7000,
+								multi: true
+							},
+							{
+								thumb: '',
+								label: 'Колесные арки снаружи',
+								value: 3000,
+								multi: true
+							},
+						]
+					}
 				]}
 			/>
 

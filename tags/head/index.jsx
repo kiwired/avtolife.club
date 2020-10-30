@@ -4,7 +4,7 @@ import Modal from '../../forms/call'
 
 import css from './index.module.scss'
 
-export default ({ title, text, thumb, action }) => {
+export default function Head({ title, text, thumb, action }) {
 	return (
 		<div className={css.container} style={{ backgroundImage: `url(${thumb})` }}>
 

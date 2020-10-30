@@ -2,7 +2,7 @@ import React from 'react'
 
 import css from './index.module.scss'
 
-export default ({ title, thumb, ...props }) => {
+export default function Result({ title, thumb, ...props }) {
 
 	return (
 		<div className={css.container}>

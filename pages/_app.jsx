@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import {
 	DefaultSeo,
+	LogoJsonLd,
 	CorporateContactJsonLd,
 	LocalBusinessJsonLd,
 	SocialProfileJsonLd
@@ -15,11 +16,12 @@ const SEO = {
 	openGraph: {
 		type: 'website',
 		locale: 'ru_RU',
+		url: 'https://avtolife.club/',
 		site_name: 'AvtoLife',
 	}
 }
 
-export default ({ Component, pageProps }) => {
+export default function App({ Component, pageProps }) {
 
 	// const [viewport, setViewport] = React.useState('user-scalable=no, width=1280')
 	const [viewport, setViewport] = React.useState('width=device-width, initial-scale=1.0, maximum-scale=1.0')
@@ -58,6 +60,10 @@ export default ({ Component, pageProps }) => {
 				<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aleo:400,700|Roboto:100,100i,300,300i,400,500,500i&display=swap&subset=cyrillic" />
 			</Head>
 			<DefaultSeo {...SEO} />
+			<LogoJsonLd
+				logo="https://avtolife.club/img/logo.svg"
+				url="https://avtolife.club/"
+			/>
 			<CorporateContactJsonLd
 				url="https://avtolife.club/"
 				logo="https://avtolife.club/img/logo.svg"
@@ -109,7 +115,7 @@ export default ({ Component, pageProps }) => {
 							'Sunday'
 						],
 						validFrom: '2020-01-01',
-						validThrough: '2026-01-01',
+						validThrough: '2030-01-01',
 					}
 				]}
 			/>

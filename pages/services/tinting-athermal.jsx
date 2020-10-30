@@ -82,22 +82,26 @@ export default () => {
 
 			<Price
 				title="Стоимость поклейки аретмальной тонировки"
-				label="Выберите производителя пленки:"
 				list={[
 					{
-						thumb: '',
-						label: 'SunTek',
-						value: 3000,
-					},
-					{
-						thumb: '',
-						label: 'Llumar',
-						value: 3500,
-					},
-					{
-						thumb: '',
-						label: 'UltraVision',
-						value: 3000,
+						title: 'Выберите производителя пленки:',
+						list: [
+							{
+								thumb: '',
+								label: 'SunTek',
+								value: 3000,
+							},
+							{
+								thumb: '',
+								label: 'Llumar',
+								value: 3500,
+							},
+							{
+								thumb: '',
+								label: 'UltraVision',
+								value: 3000,
+							}
+						]
 					}
 				]}
 			/>

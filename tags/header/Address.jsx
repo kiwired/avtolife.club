@@ -2,7 +2,7 @@ import React from 'react'
 
 import css from './index.module.scss'
 
-export default () => {
+export default function Address() {
 	return (
 		<div className={css.address}>
 			<span>г. Омск, ул. Химиков, 60</span>

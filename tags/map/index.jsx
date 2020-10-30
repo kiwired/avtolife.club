@@ -17,7 +17,7 @@ const loader = (src, cb) => {
 	document.body.appendChild(script)
 }
 
-export default () => {
+export default function Map() {
 
 	const node = useRef()
 	const [visible, onChange] = useState(false)

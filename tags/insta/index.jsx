@@ -2,7 +2,7 @@ import React from 'react'
 
 import css from './index.module.scss'
 
-export default ({ keys }) => {
+export default function Insta({ keys }) {
 
 	return (
 		<div className={css.container}>
