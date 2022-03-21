@@ -7,6 +7,7 @@ import {
 	LocalBusinessJsonLd,
 	SocialProfileJsonLd
 } from 'next-seo'
+import VKPixel from '../libs/VKPixel'
 
 import '../styles/index.scss'
 
@@ -59,6 +60,7 @@ export default function App({ Component, pageProps }) {
 				<meta name="viewport" content={viewport} />
 				<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aleo:400,700|Roboto:100,100i,300,300i,400,500,500i&display=swap&subset=cyrillic" />
 			</Head>
+			<VKPixel />
 			<DefaultSeo {...SEO} />
 			<LogoJsonLd
 				logo="https://avtolife.club/img/logo.svg"
