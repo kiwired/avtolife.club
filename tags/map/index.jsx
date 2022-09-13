@@ -6,7 +6,7 @@ import Modal from '../../forms/call'
 
 import css from './index.module.scss'
 
-const { GOOGLE_API } = process.env
+const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API
 
 
 const loader = (src, cb) => {
@@ -81,10 +81,10 @@ export default function Map() {
 	}
 
 	const onVisible = next => onChange(prev => {
-		if (prev || !next) {
+		if (prev || !next || !apiKey) {
 			return
 		}
-		let src = `//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&language=ru_RU&key=${GOOGLE_API}`
+		const src = `//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&language=ru_RU&key=${apiKey}`
 		loader(src, onInit)
 		return next || visible
 	})
