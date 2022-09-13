@@ -36,9 +36,9 @@ export default function Index() {
 							<a href='tel:+79083156307'>+7 (908) 315-63-07</a>
 						</div>
 						<div className={css.headSocial}>
-							<a target='_blank' href='//vk.com/clubcarbon'></a>
+							<a target='_blank' href='//vk.com/avtolife.club'></a>
 							<a target='_blank' href='//instagram.com/avtolife.club'></a>
-							<a target='_blank' href='//wa.me/79083156307'></a>
+							<a target='_blank' href='//api.whatsapp.com/send?phone=79083156307'></a>
 						</div>
 						<Modal className={css.headCall} action="Записаться" />
 					</div>

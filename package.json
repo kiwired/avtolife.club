@@ -20,7 +20,6 @@
     "react-dom": "^17.0.1",
     "react-spring": "^8.0.27",
     "react-visibility-sensor": "^5.1.1",
-    "react-vk-pixel": "^1.0.1",
     "sass": "^1.26.5"
   }
 }

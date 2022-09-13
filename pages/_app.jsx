@@ -8,6 +8,7 @@ import {
 	SocialProfileJsonLd
 } from 'next-seo'
 import VKPixel from '../libs/VKPixel'
+import YandexMetrika from '../libs/YandexMetrika'
 
 import '../styles/index.scss'
 
@@ -61,6 +62,7 @@ export default function App({ Component, pageProps }) {
 				<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aleo:400,700|Roboto:100,100i,300,300i,400,500,500i&display=swap&subset=cyrillic" />
 			</Head>
 			<VKPixel />
+			<YandexMetrika />
 			<DefaultSeo {...SEO} />
 			<LogoJsonLd
 				logo="https://avtolife.club/img/logo.svg"
@@ -126,7 +128,7 @@ export default function App({ Component, pageProps }) {
 				name="AvtoLife"
 				url="https://avtolife.club/"
 				sameAs={[
-					'https://vk.com/clubcarbon',
+					'https://vk.com/avtolife.club',
 					'https://instagram.com/avtolife.club',
 					'https://ok.ru/avtolife55',
 					'https://youtube.com/user/avtolifeclub/'
