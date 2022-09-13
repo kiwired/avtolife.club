@@ -1,13 +1,18 @@
 import { useEffect } from 'react'
-// import { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 const yandexId = process.env.NEXT_PUBLIC_YANDEX_METRIKA
 
 const YandexMetrika = () => {
 
+	const router = useRouter()
+
 	useEffect(() => {
 
 		if (!yandexId) return
+
+		window['ym'] = window['ym'] || function () { (window['ym'].a = window['ym'].a || []).push(arguments) }
+		window['ym'].l = 1 * new Date();
 
 		const script = document.createElement('script')
 		script.type = 'text/javascript'
@@ -24,8 +29,14 @@ const YandexMetrika = () => {
 
 		document.head.appendChild(script)
 
-		return () => {}
-	}, [])
+		const onRouteChange = () => {
+			ym(yandexId, 'hit', router.route)
+		}
+
+		router.events.on('routeChangeComplete', onRouteChange)
+
+		return () => router.events.off('routeChangeComplete', onRouteChange)
+	}, [router.events])
 
 	return null
 }
