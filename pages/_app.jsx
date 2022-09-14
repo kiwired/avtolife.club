@@ -25,15 +25,14 @@ const SEO = {
 
 export default function App({ Component, pageProps }) {
 
-	// const [viewport, setViewport] = React.useState('user-scalable=no, width=1280')
-	const [viewport, setViewport] = React.useState('width=device-width, initial-scale=1.0, maximum-scale=1.0')
+	// const [viewport, setViewport] = useState('user-scalable=no, width=1280')
+	const [viewport, setViewport] = useState('width=device-width, initial-scale=1.0, maximum-scale=1.0')
 
 	useEffect(() => {
 
 		const viewport = document.querySelector('meta[name="viewport"]');
 
 		const onResize = () => {
-
 			// let meta = 'width=device-width, initial-scale=1.0, maximum-scale=1.0'
 			let meta = 'width=device-width, initial-scale=1.0, maximum-scale=1.0'
 			viewport.setAttribute('content', 'width=device-width')
@@ -51,15 +50,19 @@ export default function App({ Component, pageProps }) {
 			document.documentElement.style.fontSize = fontSize
 		}
 
-		window.addEventListener('load', onResize)
+		onResize()
+
 		window.addEventListener('resize', onResize)
-	})
+
+		return () => {
+			window.removeEventListener('resize', onResize)
+		}
+	}, [])
 
 	return (
 		<>
 			<Head>
 				<meta name="viewport" content={viewport} />
-				<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aleo:400,700|Roboto:100,100i,300,300i,400,500,500i&display=swap&subset=cyrillic" />
 			</Head>
 			<VKPixel />
 			<YandexMetrika />
