@@ -1,5 +1,7 @@
+import axios from 'axios'
 import React, { useState, useEffect, useLayoutEffect, useCallback, useRef, forwardRef } from 'react'
 import { useTransition, useSpring, useChain, animated, config } from 'react-spring'
+
 
 import Button from '../../tags/button'
 import { Input } from '../../tags/form'
@@ -27,6 +29,17 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 
 	const button = useRef(null)
 	const [open, setStatus] = useState(false)
+	const [loading, setLoading] = useState(false)
+	const [alert, setAlert] = useState(null)
+	const [form, setForm] = useState({
+		name: '',
+		phone: ''
+	})
+	const onInput = useCallback((key) => {
+		return (event) => {
+			setForm((form) => ({ ...form, [key]: event.target.value }))
+		}
+	}, [])
 
 	// const [scale, setScale] = useState(1)
 	// const [defaultRect, setDefRect] = useState({})
@@ -96,6 +109,25 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 		return open
 	}))
 
+	const onSubmit = useCallback((event) => {
+		event.preventDefault()
+		setLoading(true)
+
+		const params = {
+			to: '79237672918',
+			text: `Запрос звонка с сайта. ${form.phone} ${form.name}`,
+		}
+
+		axios.post('/api/sms', {}, { params })
+			.then((res) => {
+				console.log(res)
+				setAlert('Ваша заявка принята. В ближайшее время с Вами свяжется наш администратор')
+			})
+			.catch((error) => {
+				setAlert(error.message)
+			})
+	}, [form])
+
 	const refWrap = useRef()
 	const trans = useTransition(open, null, {
 		ref: refWrap,
@@ -145,37 +177,42 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 				<span ref={button}>{action}</span>
 			</Button>
 
-			{trans.map(({ item, props, key }) => !item ? null : (
-				<animated.div key={key} className={css.wrap} style={props}>
-					<animated.div className={css.overflow} style={styleOverflow} onClick={onClick} />
-					<animated.div className={css.window} style={propsBody}>
-						
+			<div key={key} className={css.wrap} style={props}>
+				<div className={css.overflow} style={styleOverflow} onClick={onClick} />
+				<div className={css.window} style={propsBody}>
+					<form onSubmit={onSubmit}>
+
 						<div className={css.title}>
 							{title}
 						</div>
-						
+
 						<div className={css.subtitle}>
 							Пожалуйста, укажите Ваши контактные данные, в ближайшее время мы перезвоним
 						</div>
-						
+
 						<div className={css.row}>
-							<Input type='text' label='Имя:' placeholder='Иван' />
+							<Input type='text' name='fullname' label='Имя:' placeholder='Иван' onInput={onInput('name')} />
 						</div>
-						
+
 						<div className={css.row}>
-							<Input type='text' label='Номер телефона:' placeholder='+7 (908) 315-63-07' />
+							<Input type='tel' name='phone' label='Номер телефона:' placeholder='+7 (908) 315-63-07' onInput={onInput('phone')} />
 						</div>
-						
+
 						<div className={css.action}>
-							<Button size={'small'}>
+							<Button size={'small'} disabled={loading}>
 								Перезвонить мне
 							</Button>
 						</div>
 
-					</animated.div>
-				</animated.div>
-			))}
-			
+						{alert && (
+							<div className={css.row}>
+								{alert}
+							</div>
+						)}
+
+					</form>
+				</div>
+			</div>
 
 		</>
 	)
