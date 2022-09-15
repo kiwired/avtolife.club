@@ -177,7 +177,7 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 				<span ref={button}>{action}</span>
 			</Button>
 
-			<div key={key} className={css.wrap} style={props}>
+			{/* <div key={key} className={css.wrap} style={props}>
 				<div className={css.overflow} style={styleOverflow} onClick={onClick} />
 				<div className={css.window} style={propsBody}>
 					<form onSubmit={onSubmit}>
@@ -212,7 +212,7 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 
 					</form>
 				</div>
-			</div>
+			</div> */}
 
 		</>
 	)
