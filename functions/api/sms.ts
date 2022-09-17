@@ -3,7 +3,7 @@ import { sendJson } from '../utils/sendJson'
 export const onRequestPost = async ({ request, env }) => {
 	try {
 
-		const body: { text: string } = request.body
+		const body: { text: string } = request.json
 
 		return sendJson({ ...body, to: env.SMS_NUM, api_id: env.SMS_API, json: true })
 
