@@ -21,9 +21,8 @@ export const onRequestPost = async ({ request, env }) => {
 		const json = await res.json()
 
 		return sendJson(json)
-
 	}
 	catch(error) {
-		return sendJson(error.message)
+		return sendJson({ data: error.message }, 500)
 	}
 }
