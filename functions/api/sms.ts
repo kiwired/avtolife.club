@@ -5,22 +5,24 @@ export const onRequestPost = async ({ request, env }) => {
 
 		const body: { text: string } = request.body
 
-		const res = await fetch('https://sms.ru/sms/send', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				...body,
-				to: env.SMS_NUM,
-				api_id: env.SMS_API,
-				json: true
-			})
-		})
+		return sendJson({ ...body, to: env.SMS_NUM, api_id: env.SMS_API, json: true })
 
-		const json = await res.json()
+		// const res = await fetch('https://sms.ru/sms/send', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	body: JSON.stringify({
+		// 		...body,
+		// 		to: env.SMS_NUM,
+		// 		api_id: env.SMS_API,
+		// 		json: true
+		// 	})
+		// })
 
-		return sendJson(json)
+		// const json = await res.json()
+
+		// return sendJson(json)
 	}
 	catch(error) {
 		return sendJson({ data: error.message }, 500)
