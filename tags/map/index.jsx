@@ -108,8 +108,10 @@ export default function Map() {
 						</div>
 
 						<div className={css.time}>
-							<span>Работаем ежедневно</span>
-							<b>с 9:00 до 21:00</b>
+							<span>Работаем в будни</span>
+							<b>с 10:00 до 20:00</b>
+							<span>Суббота: 10:00 до 17:00</span>
+							<span>Воскресение: выходной</span>
 						</div>
 
 						<div className={css.navigate}>
