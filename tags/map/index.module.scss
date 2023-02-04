@@ -84,12 +84,16 @@
 
 .time,
 .navigate {
-	padding: rem(15px) 0;
 	border-top: rem(1px) solid #EDE9E9;
 }
 
 .time {
+	padding: rem(15px) 0;
 	font-size: rem(14px);
+
+	@include medium {
+		padding: rem(15px) 0 0;
+	}
 
 	> b {
 		font-size: rem(20px);
@@ -97,6 +101,7 @@
 }
 
 .navigate {
+	padding: rem(15px) 0 0;
 
 	> span {
 		font-size: rem(14px);
@@ -113,10 +118,3 @@
 		display: none;
 	}
 }
-
-.call {
-	text-align: center;
-	margin: rem(15px) 0 0;
-}
-
-	

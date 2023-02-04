@@ -5,6 +5,7 @@ import Visibility from 'react-visibility-sensor'
 import Modal from '../../forms/call'
 
 import css from './index.module.scss'
+import { useCallback } from 'react'
 
 const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API
 
@@ -80,14 +81,16 @@ export default function Map() {
 		// flight.setMap(map)
 	}
 
-	const onVisible = next => onChange(prev => {
-		if (prev || !next || !apiKey) {
-			return
-		}
-		const src = `//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&language=ru_RU&key=${apiKey}`
-		loader(src, onInit)
-		return next || visible
-	})
+	const onVisible = useCallback((next) => {
+		onChange((prev) => {
+			if (prev || !next || !apiKey) {
+				return prev
+			}
+			const src = `//maps.googleapis.com/maps/api/js?v=3.exp&language=ru_RU&key=${apiKey}&callback=console.log`
+			loader(src, onInit)
+			return true
+		})
+	}, [])
 
 	return (
 		<Visibility onChange={onVisible} partialVisibility>
@@ -119,8 +122,6 @@ export default function Map() {
 							<a target='_blank' href='//maps.apple.com/?ll=55.057492,73.306156&dirflg=d&address=Омск+ул.Химиков+60'>Карты</a>
 							{', '}<a target='_blank' href='yandexnavi://show_point_on_map?lat=55.057492&lon=73.306156&zoom=12&no-balloon=0&desc=AvtoLife'>Я.Навигатор</a>
 						</div>
-
-						<Modal className={css.call} action="Заказать звонок" />
 
 					</div>
 
