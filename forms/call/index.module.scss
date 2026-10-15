@@ -36,6 +36,9 @@
 	// top: 0;
 	// left: 0;
 	width: rem(480px);
+	max-width: calc(100vw - 2rem);
+	max-height: calc(100vh - 2rem);
+	overflow-y: auto;
 	background: white;
 	color: #000;
 	// margin: var(--margin) auto;
@@ -45,9 +48,24 @@
 	padding: var(--margin);
 }
 
+.close {
+	position: absolute;
+	top: rem(8px);
+	right: rem(8px);
+	border: 0;
+	padding: 0 rem(6px);
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	font-size: rem(28px);
+	line-height: 1;
+}
+
 
 .title {
 	font-size: var(--h3);
+	padding-right: rem(30px);
 	// text-align: center;
 }
 

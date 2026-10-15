@@ -63,15 +63,19 @@
 		}
 		
 		&Social {
+			display: flex;
+			align-items: center;
+			flex-wrap: nowrap;
+			gap: #{(12/16)}rem;
 			margin-top: #{(20/16)}rem;
 
 			@media only screen and (min-width: 40.0625rem) {
 				margin-top: 2vh;
+				gap: #{(15/16)}rem;
 
 				> a {
 					width: #{(30/16)}rem;
 					height: #{(30/16)}rem;
-					margin: 0 #{(15/16)}rem 0 0;
 				}
 			}
 
@@ -80,7 +84,6 @@
 				width: #{(50/16)}rem;
 				height: #{(50/16)}rem;
 				background: no-repeat center / contain;
-				margin: 0 #{(25/16)}rem 0 0;
 				transition: transform .3s;
 
 				&:hover,
@@ -99,11 +102,48 @@
 				&[href*='api.whatsapp.com'] {
 					background-image: url(/img/socials/whatsapp.svg);
 				}
+
+				&[href*='t.me'] {
+					background-image: url(/img/socials/telegram.svg);
+				}
+
+				&[href*='youtube.com'] {
+					background-image: url(/img/socials/youtube.svg);
+				}
 			}
 		}
 
 		&Call {
 			margin-top: #{(50/16)}rem;
+			background: #31D1F6;
+			border-color: #31D1F6;
+
+			&::before {
+				top: 0;
+				left: -130%;
+				width: 60%;
+				height: 100%;
+				background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, .7) 50%, transparent 80%);
+				transform: skewX(-20deg);
+				transition: left .65s ease;
+			}
+
+			&:hover,
+			&:focus-visible {
+				background: #1ABDE8;
+				border-color: #1ABDE8;
+			}
+
+			&:hover::before,
+			&:focus-visible::before {
+				left: 140%;
+			}
+
+			&:focus-visible {
+				outline: 2px solid white;
+				outline-offset: 2px;
+			}
+
 			@media only screen and (min-width: 40.0625rem) {
 				margin-top: 5vh;
 			}

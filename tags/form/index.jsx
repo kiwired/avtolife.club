@@ -2,16 +2,16 @@ import React from 'react'
 
 import css from './index.module.scss'
 
-export const Input = ({ label, ...props }) => {
+export const Input = ({ label, id, ...props }) => {
 	// className = [css.button, className].filter(v => v).join(' ')
 	return (
 		<>
 			{label && (
-				<label className={css.label}>
+				<label className={css.label} htmlFor={id}>
 					{label}
 				</label>
 			)}
-			<input className={css.input} {...props} />
+			<input id={id} className={css.input} {...props} />
 		</>
 	)
 }

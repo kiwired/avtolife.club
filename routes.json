@@ -1,17 +1,17 @@
 [
 	{
 		"href": "/services/polishing",
-		"thumb": "/img/thumbs/polishing.jpg",
+		"thumb": "/img/thumbs/polishing.png",
 		"title": "Полировка"
 	},
 	{
 		"href": "/services/cleaning",
-		"thumb": "/img/thumbs/cleaning.jpg",
+		"thumb": "/img/thumbs/cleaning.png",
 		"title": "Химчистка"
 	},
 	{
 		"href": "/",
-		"thumb": "/img/thumbs/protection.jpg",
+		"thumb": "/img/thumbs/protection.png",
 		"title": "Защита",
 		"childs": [
 			{
@@ -30,7 +30,7 @@
 	},
 	{
 		"href": "/",
-		"thumb": "/img/thumbs/tinting.jpg",
+		"thumb": "/img/thumbs/tinting.png",
 		"title": "Тонировка",
 		"childs": [
 			{
@@ -61,12 +61,12 @@
 	},
 	{
 		"href": "/services/soundproofing",
-		"thumb": "/img/thumbs/soundproofing.jpg",
+		"thumb": "/img/thumbs/soundproofing.png",
 		"title": "Шумоизоляция"
 	},
 	{
-		"href": "/services/learning",
-		"thumb": "/img/thumbs/learning.jpg",
-		"title": "Обучение"
+		"href": "/services/carwash",
+		"thumb": "/img/thumbs/carwash.png",
+		"title": "Детейлинг мойка"
 	}
 ]
