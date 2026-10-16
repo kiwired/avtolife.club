@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState, useEffect, useLayoutEffect, useCallback, useRef, forwardRef } from 'react'
+import React, { useState, useEffect, useCallback, useRef, forwardRef } from 'react'
 import { useTransition, useSpring, useChain, animated, config } from 'react-spring'
 
 
@@ -50,7 +50,7 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 	// let defaultRect = {}
 	// let finishRect = {}
 
-	const onScroll = () => {
+	const onScroll = useCallback(() => {
 
 		let scale = calcScale(button.current, window.scrollY, window.innerWidth, window.innerHeight)
 
@@ -76,11 +76,10 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 				opacity: 1
 			}
 		})
-	}
+	}, [])
 
 	useEffect(() => {
-
-		// console.log('useEffect')
+		onScroll()
 		window.addEventListener('load', onScroll)
 		window.addEventListener('resize', onScroll)
 		window.addEventListener('scroll', onScroll)
@@ -90,42 +89,27 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 			window.removeEventListener('resize', onScroll)
 			window.removeEventListener('scroll', onScroll)
 		}
-	})
+	}, [onScroll])
 
-	// useLayoutEffect(() => {
-	// 	console.log('useLayoutEffect')
-	// 	onScroll()
-	// })
-
-	const onClick = useCallback(() => setStatus(prev => {
-		let open = !prev
-		console.log('onClick', open)
-		// let style = document.documentElement.getAttribute('style')
-		// if (open) {
-		// 	document.documentElement.setAttribute('style', 'overflow: hidden')
-		// } else {
-		// 	document.documentElement.removeAttribute('style')
-		// }
-		return open
-	}))
+	const onClick = useCallback(() => setStatus(prev => !prev), [])
 
 	const onSubmit = useCallback((event) => {
 		event.preventDefault()
 		setLoading(true)
 
-		const params = {
-			to: '79237672918',
-			text: `Запрос звонка с сайта. ${form.phone} ${form.name}`,
-		}
-
-		axios.post('/api/sms', {}, { params })
-			.then((res) => {
-				console.log(res)
+		setAlert(null)
+		axios.post('/api/call', {
+			name: form.name,
+			phone: form.phone,
+			url: window.location.href,
+		})
+			.then(() => {
 				setAlert('Ваша заявка принята. В ближайшее время с Вами свяжется наш администратор')
 			})
 			.catch((error) => {
-				setAlert(error.message)
+				setAlert(error.response?.data?.data || error.message)
 			})
+			.finally(() => setLoading(false))
 	}, [form])
 
 	const refWrap = useRef()
@@ -177,42 +161,43 @@ export default forwardRef(({ className, title = 'Обратный звонок',
 				<span ref={button}>{action}</span>
 			</Button>
 
-			{/* <div key={key} className={css.wrap} style={props}>
-				<div className={css.overflow} style={styleOverflow} onClick={onClick} />
-				<div className={css.window} style={propsBody}>
-					<form onSubmit={onSubmit}>
-
-						<div className={css.title}>
-							{title}
-						</div>
-
-						<div className={css.subtitle}>
-							Пожалуйста, укажите Ваши контактные данные, в ближайшее время мы перезвоним
-						</div>
-
-						<div className={css.row}>
-							<Input type='text' name='fullname' label='Имя:' placeholder='Иван' onInput={onInput('name')} />
-						</div>
-
-						<div className={css.row}>
-							<Input type='tel' name='phone' label='Номер телефона:' placeholder='+7 (908) 315-63-07' onInput={onInput('phone')} />
-						</div>
-
-						<div className={css.action}>
-							<Button size={'small'} disabled={loading}>
-								Перезвонить мне
-							</Button>
-						</div>
-
-						{alert && (
-							<div className={css.row}>
-								{alert}
+			{trans.map(({ item, props, key }) => item && (
+				<animated.div key={key} className={css.wrap} style={props}>
+					<animated.div className={css.overflow} style={styleOverflow} onClick={onClick} />
+					<animated.div className={css.window} style={propsBody} role='dialog' aria-modal='true' aria-labelledby='call-form-title'>
+						<button type='button' className={css.close} onClick={onClick} aria-label='Закрыть форму'>×</button>
+						<form onSubmit={onSubmit}>
+							<div className={css.title} id='call-form-title'>
+								{title}
 							</div>
-						)}
 
-					</form>
-				</div>
-			</div> */}
+							<div className={css.subtitle}>
+								Оставьте контакты, и мы ответим на ваши вопросы
+							</div>
+
+							<div className={css.row}>
+								<Input id='call-name' type='text' name='name' label='Имя:' placeholder='Иван' autoComplete='name' required onInput={onInput('name')} />
+							</div>
+
+							<div className={css.row}>
+								<Input id='call-phone' type='tel' name='phone' label='Номер телефона:' placeholder='+7 (908) 315-63-07' autoComplete='tel' required onInput={onInput('phone')} />
+							</div>
+
+							<div className={css.action}>
+								<Button type='submit' size='small' disabled={loading}>
+									Перезвонить мне
+								</Button>
+							</div>
+
+							{alert && (
+								<div className={css.row} role='status'>
+									{alert}
+								</div>
+							)}
+						</form>
+					</animated.div>
+				</animated.div>
+			))}
 
 		</>
 	)
